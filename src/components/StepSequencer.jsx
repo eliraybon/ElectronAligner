@@ -4,6 +4,7 @@ import Sequence from '../util/Sequence';
 import Row from './Row';
 
 import Kick from '../synthesis/Kick';
+import Snare from '../synthesis/Snare';
  
 
 export default class StepSequeuncer extends React.Component {
@@ -18,8 +19,10 @@ export default class StepSequeuncer extends React.Component {
     this.context = new AudioContext();
 
     this.kick = new Kick(this.context);
+    this.snare = new Snare(this.context);
 
     this.kickSequence = new Sequence();
+    this.snareSequence = new Sequence();
 
     Transport.bpm.value = 120;
     Transport.scheduleRepeat(this.repeat, '16n');
@@ -31,6 +34,7 @@ export default class StepSequeuncer extends React.Component {
 
   repeat = time => {
     if (this.kickSequence.steps[this.state.step]) this.kick.trigger(time);
+    if (this.snareSequence.steps[this.state.step]) this.snare.trigger(time);
     this.setState(state => {
       return { step: ((state.step + 1) % 16)}
     })
@@ -41,6 +45,8 @@ export default class StepSequeuncer extends React.Component {
       case "kick":
         this.kickSequence.steps[stepNumber] = selected;
         break;
+      case "snare":
+        this.snareSequence.steps[stepNumber] = selected;
       default:
         return;
     }
@@ -75,6 +81,12 @@ export default class StepSequeuncer extends React.Component {
         <Row
           steps={this.kickSequence.steps}
           sound="kick"
+          updateSequence={this.updateSequence}
+        />
+
+        <Row
+          steps={this.snareSequence.steps}
+          sound="snare"
           updateSequence={this.updateSequence}
         />
       </div>
