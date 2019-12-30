@@ -1,9 +1,10 @@
 import React from 'react';
+import StepSequencer from './components/StepSequencer';
 
 function App() {
   return (
     <main>
-      <div>Hello world</div>
+      <StepSequencer />
     </main>
   );
 }
