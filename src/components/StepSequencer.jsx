@@ -40,9 +40,21 @@ export default class StepSequeuncer extends React.Component {
     });
   }
 
+  updateBpm = e => {
+    e.preventDefault();
+    Transport.bpm.value = e.target.value;
+    this.setState({ bpm: e.target.value })
+  }
+
   render() {
     return (
       <div className="step-sequencer">
+        <input
+          type="number"
+          value={this.state.bpm}
+          onChange={this.updateBpm}
+        />
+        
         <div onClick={this.togglePlay}>
           {(this.state.playing) ? "Pause" : "Play"}
         </div>
