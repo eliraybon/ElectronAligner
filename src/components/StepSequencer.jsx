@@ -1,7 +1,10 @@
 import React from 'react';
-import Tone, { Transport } from 'tone';
+import { Transport } from 'tone';
 import Sequence from '../util/Sequence';
+import Row from './Row';
+
 import Kick from '../synthesis/Kick';
+ 
 
 export default class StepSequeuncer extends React.Component {
   constructor(props) {
@@ -33,6 +36,16 @@ export default class StepSequeuncer extends React.Component {
     })
   }
 
+  updateSequence = (sound, stepNumber, selected) => {
+    switch (sound) {
+      case "kick":
+        this.kickSequence.steps[stepNumber] = selected;
+        break;
+      default:
+        return;
+    }
+  }
+
   togglePlay = () => {
     Transport.toggle();
     this.setState(state => {
@@ -54,10 +67,16 @@ export default class StepSequeuncer extends React.Component {
           value={this.state.bpm}
           onChange={this.updateBpm}
         />
-        
+
         <div onClick={this.togglePlay}>
           {(this.state.playing) ? "Pause" : "Play"}
         </div>
+
+        <Row
+          steps={this.kickSequence.steps}
+          sound="kick"
+          updateSequence={this.updateSequence}
+        />
       </div>
     )
   }

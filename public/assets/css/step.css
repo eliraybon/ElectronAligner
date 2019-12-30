@@ -1,0 +1,11 @@
+.step {
+  width: 50px;
+  height: 80px;
+  border-radius: 20px;
+  background: hotpink;
+  margin: 10px;
+}
+
+.selected {
+  background: purple;
+}
