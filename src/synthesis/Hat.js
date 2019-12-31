@@ -24,7 +24,7 @@ export default class Hat {
   }
 
   trigger = time => {
-    if (this.volume == 0) return ;
+    if (this.volume === 0) return ;
     this.setup();
     this.ratios.forEach((ratio) => {
       const osc = this.context.createOscillator();
