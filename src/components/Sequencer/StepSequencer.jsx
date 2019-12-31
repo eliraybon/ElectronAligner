@@ -1,6 +1,7 @@
 import React from 'react';
 import { Transport } from 'tone';
 import Sequence from '../../util/Sequence';
+import StepBar from './StepBar';
 import Row from './Row';
 
 import Kick from '../../synthesis/Kick';
@@ -99,6 +100,8 @@ export default class StepSequeuncer extends React.Component {
         <div onClick={this.togglePlay}>
           {(this.state.playing) ? "Pause" : "Play"}
         </div>
+        
+        <StepBar currentStep={this.state.step} />
 
         <Row
           steps={this.kickSequence.steps}

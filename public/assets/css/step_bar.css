@@ -1,0 +1,14 @@
+.step-bar {
+  display: flex;
+}
+
+.step-bar-light {
+  width: 50px;
+  height: 10px;
+  background: gray;
+  margin: 10px;
+}
+
+.active-light {
+  background: red;
+}
