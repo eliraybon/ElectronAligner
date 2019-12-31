@@ -10,7 +10,22 @@ export default class LogoAndButtons extends React.Component {
             <p className="advance">Advance</p>
           </div>
 
-          <p>Color select</p>
+          <select 
+            className="color-select"
+            value={this.props.colorScheme}
+            onChange={e => this.props.changeColorScheme(e)}
+          >
+            <option 
+              className="color-option" 
+              value="--color--"
+              disabled
+            >
+              --color--
+            </option>
+            <option className="color-option" value="default">default</option>
+            <option className="color-option" value="classic">classic</option>
+            <option className="color-option" value="dokidoki">dokidoki</option>
+          </select>
         </div>
 
         <div className="buttons">

@@ -11,7 +11,8 @@ export default class DrumBoy extends React.Component {
     super(props);
     this.state = {
       bpm: 120,
-      playing: false
+      playing: false,
+      colorScheme: '--color--'
     };
 
     Transport.bpm.value = 120;
@@ -43,6 +44,11 @@ export default class DrumBoy extends React.Component {
     this.setState({ bpm: e.target.value })
   }
 
+  changeColorScheme = e => {
+    e.preventDefault();
+    this.setState({ colorScheme: e.target.value })
+  }
+
   render() {
     return (
       <div className="drum-boy">
@@ -54,25 +60,26 @@ export default class DrumBoy extends React.Component {
               playing={this.state.playing}
               togglePlay={this.togglePlay}
               updateBpm={this.updateBpm}
+              changeColorScheme={this.changeColorScheme}
+              colorScheme={this.state.colorScheme}
             />
-            <Oscilloscope />
-            <SoundControls />
+
+            <Oscilloscope 
+              colorScheme={this.state.colorScheme}
+            />
+
+            <SoundControls 
+              colorScheme={this.state.colorScheme}
+            />
           </div>
 
-          <Wildcards />
+          <Wildcards colorScheme={this.state.colorScheme} />
         </div>
 
-        {/* <input
-          type="number"
-          value={this.state.bpm}
-          onChange={this.updateBpm}
+        <StepSequencer 
+          transport={Transport} 
+          colorScheme={this.state.colorScheme}
         />
-
-        <div onClick={this.togglePlay}>
-          {(this.state.playing) ? "Pause" : "Play"}
-        </div> */}
-
-        <StepSequencer transport={Transport} />
       </div>
     )
   }

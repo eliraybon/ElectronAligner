@@ -1,5 +1,4 @@
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 
 export default class StepBarLight extends React.Component {
   render() {
