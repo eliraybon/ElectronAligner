@@ -9,6 +9,7 @@ Using the looping sequencer, users can create their own beats live!
 -  Interactive step sequencer
 -  Looping for live beat creation
 -  Drum sound selection
+-  Keyboard drumming
 -  Tempo Control 
 -  Volume Control
 
