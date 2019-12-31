@@ -33,6 +33,15 @@ export default class StepSequeuncer extends React.Component {
     Transport.loop = true;
     Transport.swing = 0;
     Transport.loopEnd = "1m";
+
+    document.addEventListener('keydown', e => {
+      if (e.keyCode === 32) {
+        this.togglePlay();
+      }
+      if (e.keyCode === 13) {
+        this.setState({ step: 0 });
+      }
+    })
   }
 
   repeat = time => {
