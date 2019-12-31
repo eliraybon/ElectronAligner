@@ -49,7 +49,12 @@ export default class DrumBoy extends React.Component {
 
         <div className="main">
           <div className="top">
-            <LogoAndButtons />
+            <LogoAndButtons 
+              bpm={this.state.bpm}
+              playing={this.state.playing}
+              togglePlay={this.togglePlay}
+              updateBpm={this.updateBpm}
+            />
             <Oscilloscope />
             <SoundControls />
           </div>

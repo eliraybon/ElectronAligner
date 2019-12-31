@@ -1,0 +1,6 @@
+.oscilloscope {
+  width: 30%;
+  min-width: 300px;
+  padding: 10px;
+  background: green;
+}
