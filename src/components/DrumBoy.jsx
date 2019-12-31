@@ -1,5 +1,9 @@
 import React from 'react';
 import { Transport } from 'tone';
+import LogoAndButtons from './Main/LogoAndButtons';
+import Oscilloscope from './Main/Oscilloscope';
+import SoundControls from './Main/SoundControls';
+import Wildcards from './Main/Wildcards';
 import StepSequencer from './Sequencer/StepSequencer';
 
 export default class DrumBoy extends React.Component {
@@ -42,7 +46,18 @@ export default class DrumBoy extends React.Component {
   render() {
     return (
       <div className="drum-boy">
-        <input
+
+        <div className="main">
+          <div className="top">
+            <LogoAndButtons />
+            <Oscilloscope />
+            <SoundControls />
+          </div>
+
+          <Wildcards />
+        </div>
+
+        {/* <input
           type="number"
           value={this.state.bpm}
           onChange={this.updateBpm}
@@ -50,7 +65,7 @@ export default class DrumBoy extends React.Component {
 
         <div onClick={this.togglePlay}>
           {(this.state.playing) ? "Pause" : "Play"}
-        </div>
+        </div> */}
 
         <StepSequencer transport={Transport} />
       </div>

@@ -1,5 +1,10 @@
 @import "./assets/css/reset.css";
 @import "./assets/css/drum_boy.css";
+@import "./assets/css/logo_and_buttons.css";
+@import "./assets/css/oscilloscope.css";
+@import "./assets/css/sound_controls.css";
+@import "./assets/css/wildcards.css";
+@import "./assets/css/step_sequencer.css";
 @import "./assets/css/row.css";
 @import "./assets/css/step.css";
 @import "./assets/css/step_bar.css";
