@@ -1,6 +1,6 @@
 export default class Snare {
   constructor(context) {
-    this.context = context;
+    this.context = context.rawContext;
   }
 
   noiseBuffer = () => {

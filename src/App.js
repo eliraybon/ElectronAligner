@@ -1,10 +1,10 @@
 import React from 'react';
-import StepSequencer from './components/StepSequencer';
+import DrumBoy from './components/DrumBoy';
 
 function App() {
   return (
     <main>
-      <StepSequencer />
+      <DrumBoy />
     </main>
   );
 }

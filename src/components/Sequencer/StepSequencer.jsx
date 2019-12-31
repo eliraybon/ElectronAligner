@@ -1,11 +1,11 @@
 import React from 'react';
 import { Transport } from 'tone';
-import Sequence from '../util/Sequence';
+import Sequence from '../../util/Sequence';
 import Row from './Row';
 
-import Kick from '../synthesis/Kick';
-import Snare from '../synthesis/Snare';
-import Hat from '../synthesis/Hat';
+import Kick from '../../synthesis/Kick';
+import Snare from '../../synthesis/Snare';
+import Hat from '../../synthesis/Hat';
  
 
 export default class StepSequeuncer extends React.Component {
@@ -17,7 +17,7 @@ export default class StepSequeuncer extends React.Component {
       playing: false,
     };
 
-    this.context = new AudioContext();
+    this.context = Transport.context; 
 
     this.kick = new Kick(this.context);
     this.snare = new Snare(this.context);
@@ -35,11 +35,16 @@ export default class StepSequeuncer extends React.Component {
     Transport.loopEnd = "1m";
 
     document.addEventListener('keydown', e => {
-      if (e.keyCode === 32) {
-        this.togglePlay();
-      }
-      if (e.keyCode === 13) {
-        this.setState({ step: 0 });
+      console.log(e.keyCode);
+      switch(e.keyCode) {
+        case 32: 
+          this.togglePlay();
+          break;
+        case 13:
+          this.setState({ step: 0 });
+          break;
+        default: 
+          return;
       }
     })
   }

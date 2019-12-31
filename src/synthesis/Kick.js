@@ -1,6 +1,6 @@
 export default class Kick {
   constructor(context) {
-    this.context = context;
+    this.context = context.rawContext;
   }
 
   setup = () => {
