@@ -20,9 +20,6 @@ export default class DrumBoy extends React.Component {
         case 32:
           this.togglePlay();
           break;
-        case 13:
-          this.setState({ step: 0 });
-          break;
         default:
           return;
       }

@@ -31,8 +31,12 @@ export default class StepSequeuncer extends React.Component {
 
     //sets up keyboard drumming
     document.addEventListener('keydown', e => {
+      console.log(e.keyCode);
       const time = this.props.transport.context.rawContext.currentTime;
       switch (e.keyCode) {
+        case 13: 
+          this.setState({ step: 0 });
+          break;
         case 65:
           this.kick.trigger(time);
           break;
