@@ -1,6 +1,15 @@
 .oscilloscope {
   width: 30%;
   min-width: 300px;
-  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: green;
+}
+
+.osc-canvas {
+  width: 90%;
+  height: 90%;
+  border-radius: 5px;
 }
