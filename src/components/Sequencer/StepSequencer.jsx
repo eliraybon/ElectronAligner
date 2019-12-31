@@ -1,5 +1,5 @@
 import React from 'react';
-import Tone, { Transport } from 'tone';
+import { Transport } from 'tone';
 import Sequence from '../../util/Sequence';
 import Row from './Row';
 
@@ -17,9 +17,8 @@ export default class StepSequeuncer extends React.Component {
       playing: false,
     };
 
-    // this.context = new AudioContext();
     this.context = Transport.context; 
-    // console.log(Transport.context, this.context);
+
     this.kick = new Kick(this.context);
     this.snare = new Snare(this.context);
     this.hat = new Hat(this.context);
@@ -29,8 +28,7 @@ export default class StepSequeuncer extends React.Component {
     this.hatSequence = new Sequence();
 
     Transport.bpm.value = 120;
-    // this.loop = Transport.scheduleRepeat(this.repeat, '16n');
-    const loop = new Tone.Loop(this.repeat, '16n').start(0);
+    Transport.scheduleRepeat(this.repeat, '16n');
 
     Transport.loop = true;
     Transport.swing = 0;
@@ -51,18 +49,6 @@ export default class StepSequeuncer extends React.Component {
     })
   }
 
-  // rebuild = () => {
-  //   Transport.clear(this.loop);
-  //   this.context = new AudioContext();
-
-  //   this.kick = new Kick(this.context);
-  //   this.snare = new Snare(this.context);
-  //   this.hat = new Hat(this.context);
-
-  //   this.loop = Transport.scheduleRepeat(this.repeat, '16n');
-  //   Transport.start();
-  // }
-
   repeat = time => {
     if (this.kickSequence.steps[this.state.step]) this.kick.trigger(time);
     if (this.snareSequence.steps[this.state.step]) this.snare.trigger(time);
@@ -70,9 +56,6 @@ export default class StepSequeuncer extends React.Component {
     this.setState(state => {
       return { step: ((state.step + 1) % 16)}
     })
-    if (this.state.step === 0) {
-      this.rebuild();
-    }
   }
 
   updateSequence = (sound, stepNumber, selected) => {

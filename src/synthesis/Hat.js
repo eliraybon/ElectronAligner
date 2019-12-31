@@ -1,6 +1,6 @@
 export default class Hat {
   constructor(context) {
-    this.context = context;
+    this.context = context.rawContext;
     //ratios can be tweaked - experiment with the sound
     this.ratios = [1, 1.3420, 1.2312, 1.6532, 1.9523, 2.1523];
     this.tone = 130.81;
