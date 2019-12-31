@@ -1,0 +1,48 @@
+.logo-and-buttons {
+  width: 30%;
+  height: 150px;
+  min-width: 300px;
+  padding: 10px;
+  border-radius: 5px;
+  background: green;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo-and-color {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-heading {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.advance {
+  font-size: 14px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-and-buttons .buttons {
+  display: flex;
+}
+
+.play-button, .bpm-select{
+  width: 50px;
+  height: 50px;
+  margin-right: 5px;
+  border-radius: 50%;
+  background-color: palegreen;
+  font-size: 12px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

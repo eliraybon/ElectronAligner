@@ -1,6 +1,6 @@
 import React from 'react';
-import { Transport } from 'tone';
 import Sequence from '../../util/Sequence';
+import StepBar from './StepBar';
 import Row from './Row';
 
 import Kick from '../../synthesis/Kick';
@@ -12,12 +12,12 @@ export default class StepSequeuncer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bpm: 120,
       step: 0,
-      playing: false,
     };
 
-    this.context = Transport.context; 
+    const { transport } = this.props;
+
+    this.context = transport.context;
 
     this.kick = new Kick(this.context);
     this.snare = new Snare(this.context);
@@ -27,23 +27,26 @@ export default class StepSequeuncer extends React.Component {
     this.snareSequence = new Sequence();
     this.hatSequence = new Sequence();
 
-    Transport.bpm.value = 120;
-    Transport.scheduleRepeat(this.repeat, '16n');
+    transport.scheduleRepeat(this.repeat, '16n');
 
-    Transport.loop = true;
-    Transport.swing = 0;
-    Transport.loopEnd = "1m";
-
+    //sets up keyboard drumming
     document.addEventListener('keydown', e => {
       console.log(e.keyCode);
-      switch(e.keyCode) {
-        case 32: 
-          this.togglePlay();
-          break;
-        case 13:
+      const time = this.props.transport.context.rawContext.currentTime;
+      switch (e.keyCode) {
+        case 13: 
           this.setState({ step: 0 });
           break;
-        default: 
+        case 65:
+          this.kick.trigger(time);
+          break;
+        case 83:
+          this.snare.trigger(time);
+          break;
+        case 68:
+          this.hat.trigger(time);
+          break;
+        default:
           return;
       }
     })
@@ -74,31 +77,11 @@ export default class StepSequeuncer extends React.Component {
     }
   }
 
-  togglePlay = () => {
-    Transport.toggle();
-    this.setState(state => {
-      return { playing: !state.playing }
-    });
-  }
-
-  updateBpm = e => {
-    e.preventDefault();
-    Transport.bpm.value = e.target.value;
-    this.setState({ bpm: e.target.value })
-  }
-
   render() {
     return (
       <div className="step-sequencer">
-        <input
-          type="number"
-          value={this.state.bpm}
-          onChange={this.updateBpm}
-        />
 
-        <div onClick={this.togglePlay}>
-          {(this.state.playing) ? "Pause" : "Play"}
-        </div>
+        <StepBar currentStep={this.state.step} />
 
         <Row
           steps={this.kickSequence.steps}

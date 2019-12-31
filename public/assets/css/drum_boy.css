@@ -1,5 +1,26 @@
+body {
+  background: gray;
+}
+
 .drum-boy {
   width: 80%;
-  margin: 0 auto;
+  max-width: 1200px;
+  min-width: 1024px;
+  margin: 20px auto;
+  padding: 20px;
+  background: orange;
+  box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
