@@ -5,8 +5,10 @@ export default class Oscilloscope extends React.Component {
     super(props);
     const { context, analyser } = this.props;
     this.state = {
-      mode: 'bar' //two modes: 'osc' and 'bar'
+      mode: 'osc' //two modes: 'osc' and 'bar'
     }
+
+    this.animation = null;
 
     document.addEventListener("DOMContentLoaded", () => {
       this.canvas = document.querySelector('.osc-canvas');
@@ -26,17 +28,22 @@ export default class Oscilloscope extends React.Component {
     })
   }
 
-
-  visualize = () => {
-    this.canvasCtx.clearRect(0, 0, this.WIDTH, this.HEIGHT);
-    (this.state.mode === 'osc') ? this.draw() : this.drawBars();
+  componentDidUpdate() {
+    this.visualize();
   }
 
-  draw = () => {
+
+  visualize = () => {
+    cancelAnimationFrame(this.animation);
+    this.canvasCtx.clearRect(0, 0, this.WIDTH, this.HEIGHT);
+    (this.state.mode === 'osc') ? this.drawOsc() : this.drawBars();
+  }
+
+  drawOsc = () => {
     this.analyser.fftSize = 2048;
     let bufferLength = this.analyser.fftSize;
     const dataArray = new Uint8Array(bufferLength);
-    let drawVisual = requestAnimationFrame(this.draw);
+    this.animation = requestAnimationFrame(this.drawOsc);
 
     this.analyser.getByteTimeDomainData(dataArray);
     this.canvasCtx.fillStyle = 'rgb(200, 200, 200)';
@@ -73,7 +80,7 @@ export default class Oscilloscope extends React.Component {
     let bufferLengthAlt = this.analyser.frequencyBinCount;
     const dataArrayAlt = new Uint8Array(bufferLengthAlt);
 
-    const drawVisual = requestAnimationFrame(this.drawBars);
+    this.animation = requestAnimationFrame(this.drawBars);
 
     this.analyser.getByteFrequencyData(dataArrayAlt);
 
@@ -94,9 +101,21 @@ export default class Oscilloscope extends React.Component {
     }
   }
 
+  toggleMode = e => {
+    e.preventDefault();
+    if (this.state.mode === 'osc') {
+      this.setState({ mode: 'bar' });
+    } else {
+      this.setState({ mode: 'osc' });
+    }
+  }
+
   render() {
     return (
       <div className="oscilloscope">
+        <button onClick={this.toggleMode}>
+          {(this.state.mode === 'osc') ? "bar": "osc"}
+        </button>
         <canvas className="osc-canvas" />
       </div>
     )
