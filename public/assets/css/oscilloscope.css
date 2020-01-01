@@ -1,4 +1,5 @@
 .oscilloscope {
+  position: relative;
   width: 30%;
   min-width: 300px;
   border-radius: 5px;
@@ -12,4 +13,10 @@
   width: 90%;
   height: 90%;
   border-radius: 5px;
+}
+
+.visual-select {
+  position: absolute;
+  top: -18px;
+  left: 5px;
 }

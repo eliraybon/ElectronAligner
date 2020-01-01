@@ -113,7 +113,7 @@ export default class Oscilloscope extends React.Component {
   render() {
     return (
       <div className="oscilloscope">
-        <button onClick={this.toggleMode}>
+        <button className="visual-select" onClick={this.toggleMode}>
           {(this.state.mode === 'osc') ? "bar": "osc"}
         </button>
         <canvas className="osc-canvas" />

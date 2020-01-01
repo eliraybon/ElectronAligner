@@ -1,4 +1,5 @@
 .logo-and-buttons {
+  position: relative;
   width: 30%;
   height: 150px;
   min-width: 300px;
@@ -8,6 +9,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 }
 
 .logo-and-color {
@@ -32,12 +34,13 @@
 
 .logo-and-buttons .buttons {
   display: flex;
+  justify-content: space-between;
+  width: 45%;
 }
 
 .play-button, .bpm-select{
   width: 50px;
   height: 50px;
-  margin-right: 5px;
   border-radius: 50%;
   background-color: palegreen;
   font-size: 12px;
@@ -45,4 +48,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.color-select {
+  position: absolute;
+  top: -19px;
+  left: 0px;
 }
