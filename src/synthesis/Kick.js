@@ -12,7 +12,6 @@ export default class Kick {
     // this.gain.connect(this.context.destination)
   }
 
-  //should you try setting up in the constructor to avoid repeat setup?
   trigger = time => {
     this.setup();
 
