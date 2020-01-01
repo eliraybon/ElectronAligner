@@ -25,6 +25,12 @@ export default class DrumBoy extends React.Component {
         case 32:
           this.togglePlay();
           break;
+        case 38: 
+          this.updateBpmFromArrowKey(this.state.bpm + 1);
+          break;
+        case 40: 
+          this.updateBpmFromArrowKey(this.state.bpm - 1);
+          break;
         default:
           return;
       }
@@ -40,8 +46,18 @@ export default class DrumBoy extends React.Component {
 
   updateBpm = e => {
     e.preventDefault();
-    Transport.bpm.value = e.target.value;
-    this.setState({ bpm: e.target.value })
+    const bpm = e.target.value;
+    if (bpm > 0 && bpm < 201) {
+      Transport.bpm.value = bpm;
+      this.setState({ bpm: e.target.value })
+    }
+  }
+
+  updateBpmFromArrowKey = bpm => {
+    if (bpm > 0 && bpm < 201) {
+      Transport.bpm.value = bpm;
+      this.setState({ bpm });
+    }
   }
 
   changeColorScheme = e => {
