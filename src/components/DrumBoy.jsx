@@ -15,7 +15,9 @@ export default class DrumBoy extends React.Component {
       colorScheme: '--color--'
     };
 
-    this.analyser = Transport.context.rawContext.createAnalyser();
+    const context = Transport.context.rawContext;
+    this.analyser = context.createAnalyser();
+    this.analyser.connect(context.destination);
 
     Transport.bpm.value = 120;
     Transport.loop = true;
