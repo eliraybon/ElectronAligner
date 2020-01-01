@@ -1,5 +1,5 @@
 import React from 'react';
-import { Transport, Master } from 'tone';
+import { Transport } from 'tone';
 import LogoAndButtons from './Main/LogoAndButtons';
 import Oscilloscope from './Main/Oscilloscope';
 import SoundControls from './Main/SoundControls';
@@ -14,6 +14,8 @@ export default class DrumBoy extends React.Component {
       playing: false,
       colorScheme: '--color--'
     };
+
+    this.analyser = Transport.context.rawContext.createAnalyser();
 
     Transport.bpm.value = 120;
     Transport.loop = true;
@@ -82,7 +84,7 @@ export default class DrumBoy extends React.Component {
 
             <Oscilloscope 
               context={Transport.context.rawContext}
-              master={Master}
+              analyser={this.analyser}
               colorScheme={this.state.colorScheme}
             />
 
