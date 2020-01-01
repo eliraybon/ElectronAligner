@@ -57,8 +57,8 @@ export default class SoundControls extends React.Component {
           <input
             className="snare-input"
             type="range"
-            min={100}
-            max={350}
+            min={20}
+            max={300}
             value={this.props.snare.tone}
             onChange={e => this.updateSound(e, 'snare', 'tone')}
           />

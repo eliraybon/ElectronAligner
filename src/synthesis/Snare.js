@@ -38,20 +38,30 @@ export default class Snare {
   }
 
   trigger = time => {
+    if (!this.volume) return;
     this.setup();
 
     this.noiseEnvelope.gain.setValueAtTime(this.volume, time);
     this.noiseEnvelope.gain.exponentialRampToValueAtTime(0.01, time + this.decay);
     this.noise.start(time)
 
-    this.osc.frequency.setValueAtTime(100, time);
+    this.osc.frequency.setValueAtTime(this.tone, time);
     //still makes noise when no volume
-    this.oscEnvelope.gain.setValueAtTime(0.7, time);
+    if (this.volume >= 0.7) {
+      this.oscEnvelope.gain.setValueAtTime(0.5, time);
+    } else {
+      this.oscEnvelope.gain.setValueAtTime(this.volume, time);
+    }
     this.oscEnvelope.gain.exponentialRampToValueAtTime(0.01, time + 0.1);
     this.osc.start(time)
 
     //still decays when no decay 
-    this.osc.stop(time + 0.2);
+    if (this.decay >= 0.2) {
+      this.osc.stop(time + 0.2);
+    } else {
+      this.osc.stop(time + this.decay);
+    }
+  
     this.noise.stop(time + this.decay);
   }
 }
