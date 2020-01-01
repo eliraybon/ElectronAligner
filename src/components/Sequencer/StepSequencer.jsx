@@ -15,13 +15,15 @@ export default class StepSequeuncer extends React.Component {
       step: 0,
     };
 
-    const { transport, analyser } = this.props;
+    const { transport, analyser, kick, snare } = this.props;
 
+    this.transport = transport;
     this.context = transport.context;
+    this.analyser = analyser;
 
-    this.kick = new Kick(this.context, analyser);
-    this.snare = new Snare(this.context, analyser);
-    this.hat = new Hat(this.context, analyser);
+    this.kick = new Kick(this.context, this.analyser, kick);
+    this.snare = new Snare(this.context, this.analyser, snare);
+    this.hat = new Hat(this.context, this.analyser);
 
     this.kickSequence = new Sequence();
     this.snareSequence = new Sequence();
@@ -50,6 +52,12 @@ export default class StepSequeuncer extends React.Component {
           return;
       }
     })
+  }
+
+  componentDidUpdate = prevProps => {
+    const { kick, snare } = this.props;
+    this.kick = new Kick(this.transport.context, this.analyser, kick);
+    this.snare = new Snare(this.transport.context, this.analyser, snare);
   }
 
   repeat = time => {

@@ -1,15 +1,17 @@
 export default class Snare {
-  constructor(context, analyser) {
+  constructor(context, analyser, sound) {
     this.context = context.rawContext;
     this.analyser = analyser;
+
+    this.tone = sound.tone;
+    this.volume = sound.volume;
+    this.decay = sound.decay;
   }
 
   noiseBuffer = () => {
     const bufferSize = this.context.sampleRate;
     const buffer = this.context.createBuffer(1, bufferSize, this.context.sampleRate);
     const output = buffer.getChannelData(0);
-    //check how many iterations this actually has to run. May be too slow
-    //so you can experiment with another method
     for (var i = 0; i < bufferSize; i++) {
       output[i] = Math.random() * 2 - 1;
     }
@@ -38,16 +40,18 @@ export default class Snare {
   trigger = time => {
     this.setup();
 
-    this.noiseEnvelope.gain.setValueAtTime(1, time);
-    this.noiseEnvelope.gain.exponentialRampToValueAtTime(0.01, time + 0.2);
+    this.noiseEnvelope.gain.setValueAtTime(this.volume, time);
+    this.noiseEnvelope.gain.exponentialRampToValueAtTime(0.01, time + this.decay);
     this.noise.start(time)
 
     this.osc.frequency.setValueAtTime(100, time);
+    //still makes noise when no volume
     this.oscEnvelope.gain.setValueAtTime(0.7, time);
     this.oscEnvelope.gain.exponentialRampToValueAtTime(0.01, time + 0.1);
     this.osc.start(time)
 
+    //still decays when no decay 
     this.osc.stop(time + 0.2);
-    this.noise.stop(time + 0.2);
+    this.noise.stop(time + this.decay);
   }
 }
