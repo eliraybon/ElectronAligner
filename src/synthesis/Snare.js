@@ -1,6 +1,7 @@
 export default class Snare {
-  constructor(context) {
+  constructor(context, analyser) {
     this.context = context.rawContext;
+    this.analyser = analyser;
   }
 
   noiseBuffer = () => {
@@ -30,7 +31,8 @@ export default class Snare {
     this.osc.type = 'triangle';
     this.oscEnvelope = this.context.createGain();
     this.osc.connect(this.oscEnvelope);
-    this.oscEnvelope.connect(this.context.destination);
+    this.oscEnvelope.connect(this.analyser);
+    // this.oscEnvelope.connect(this.context.destination);
   }
 
   trigger = time => {

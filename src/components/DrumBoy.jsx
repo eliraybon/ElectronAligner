@@ -98,6 +98,7 @@ export default class DrumBoy extends React.Component {
 
         <StepSequencer 
           transport={Transport} 
+          analyser={this.analyser}
           colorScheme={this.state.colorScheme}
         />
       </div>
