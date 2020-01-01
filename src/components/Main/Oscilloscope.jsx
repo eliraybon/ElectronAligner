@@ -15,16 +15,17 @@ export default class Oscilloscope extends React.Component {
 
       this.analyser = context.createAnalyser();
 
-      this.props.master.connect(this.analyser);
-      this.analyser.connect(context.destination);
-    // navigator.mediaDevices.getUserMedia({ audio: { kind: "audiooutput"} })
-    //   .then(stream => {
-    //     source = context.createMediaStreamSource(stream);
-    //     source.connect(this.analyzer);
-    //     this.analyzer.connect(context.destination);
-    //   })
+      // this.props.master.connect(this.analyser);
+      // this.analyser.connect(context.destination);
+      navigator.mediaDevices.getUserMedia({ audio: true })
+        .then(stream => {
+          const source = context.createMediaStreamSource(stream);
+          debugger;
+          source.connect(this.analyser);
+          this.analyser.connect(context.destination);
+      })
 
-    this.visualize();
+      this.visualize();
     })
   }
 
