@@ -15,13 +15,13 @@ export default class StepSequeuncer extends React.Component {
       step: 0,
     };
 
-    const { transport } = this.props;
+    const { transport, analyser } = this.props;
 
     this.context = transport.context;
 
-    this.kick = new Kick(this.context);
-    this.snare = new Snare(this.context);
-    this.hat = new Hat(this.context);
+    this.kick = new Kick(this.context, analyser);
+    this.snare = new Snare(this.context, analyser);
+    this.hat = new Hat(this.context, analyser);
 
     this.kickSequence = new Sequence();
     this.snareSequence = new Sequence();

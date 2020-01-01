@@ -15,6 +15,10 @@ export default class DrumBoy extends React.Component {
       colorScheme: '--color--'
     };
 
+    const context = Transport.context.rawContext;
+    this.analyser = context.createAnalyser();
+    this.analyser.connect(context.destination);
+
     Transport.bpm.value = 120;
     Transport.loop = true;
     Transport.swing = 0;
@@ -24,6 +28,12 @@ export default class DrumBoy extends React.Component {
       switch (e.keyCode) {
         case 32:
           this.togglePlay();
+          break;
+        case 38: 
+          this.updateBpmFromArrowKey(this.state.bpm + 1);
+          break;
+        case 40: 
+          this.updateBpmFromArrowKey(this.state.bpm - 1);
           break;
         default:
           return;
@@ -40,8 +50,18 @@ export default class DrumBoy extends React.Component {
 
   updateBpm = e => {
     e.preventDefault();
-    Transport.bpm.value = e.target.value;
-    this.setState({ bpm: e.target.value })
+    const bpm = e.target.value;
+    if (bpm > 0 && bpm < 201) {
+      Transport.bpm.value = bpm;
+      this.setState({ bpm: e.target.value })
+    }
+  }
+
+  updateBpmFromArrowKey = bpm => {
+    if (bpm > 0 && bpm < 201) {
+      Transport.bpm.value = bpm;
+      this.setState({ bpm });
+    }
   }
 
   changeColorScheme = e => {
@@ -65,6 +85,8 @@ export default class DrumBoy extends React.Component {
             />
 
             <Oscilloscope 
+              context={Transport.context.rawContext}
+              analyser={this.analyser}
               colorScheme={this.state.colorScheme}
             />
 
@@ -78,6 +100,7 @@ export default class DrumBoy extends React.Component {
 
         <StepSequencer 
           transport={Transport} 
+          analyser={this.analyser}
           colorScheme={this.state.colorScheme}
         />
       </div>

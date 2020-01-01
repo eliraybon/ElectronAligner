@@ -1,6 +1,7 @@
 export default class Hat {
-  constructor(context) {
+  constructor(context, analyser) {
     this.context = context.rawContext;
+    this.analyser = analyser;
     //ratios can be tweaked - experiment with the sound
     this.ratios = [1, 1.3420, 1.2312, 1.6532, 1.9523, 2.1523];
     this.tone = 130.81;
@@ -20,7 +21,8 @@ export default class Hat {
 
     this.bndPass.connect(this.hipass);
     this.hipass.connect(this.oscEnvelope);
-    this.oscEnvelope.connect(this.context.destination);
+    this.oscEnvelope.connect(this.analyser);
+    // this.oscEnvelope.connect(this.context.destination);
   }
 
   trigger = time => {

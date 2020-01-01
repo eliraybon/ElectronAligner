@@ -1,13 +1,15 @@
 export default class Kick {
-  constructor(context) {
+  constructor(context, analyser) {
     this.context = context.rawContext;
+    this.analyser = analyser;
   }
 
   setup = () => {
     this.osc = this.context.createOscillator();
     this.gain = this.context.createGain();
     this.osc.connect(this.gain);
-    this.gain.connect(this.context.destination)
+    this.gain.connect(this.analyser);
+    // this.gain.connect(this.context.destination)
   }
 
   //should you try setting up in the constructor to avoid repeat setup?
