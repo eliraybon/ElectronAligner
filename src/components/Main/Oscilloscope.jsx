@@ -4,6 +4,11 @@ export default class Oscilloscope extends React.Component {
   constructor(props) {
     super(props);
     const { context, analyser } = this.props;
+    this.state = {
+      mode: 'osc' //two modes: 'osc' and 'bar'
+    }
+
+    this.animation = null;
 
     document.addEventListener("DOMContentLoaded", () => {
       this.canvas = document.querySelector('.osc-canvas');
@@ -23,17 +28,22 @@ export default class Oscilloscope extends React.Component {
     })
   }
 
-
-  visualize = () => {
-    this.canvasCtx.clearRect(0, 0, this.WIDTH, this.HEIGHT);
-    this.draw();
+  componentDidUpdate() {
+    this.visualize();
   }
 
-  draw = () => {
+
+  visualize = () => {
+    cancelAnimationFrame(this.animation);
+    this.canvasCtx.clearRect(0, 0, this.WIDTH, this.HEIGHT);
+    (this.state.mode === 'osc') ? this.drawOsc() : this.drawBars();
+  }
+
+  drawOsc = () => {
     this.analyser.fftSize = 2048;
     let bufferLength = this.analyser.fftSize;
     const dataArray = new Uint8Array(bufferLength);
-    let drawVisual = requestAnimationFrame(this.draw);
+    this.animation = requestAnimationFrame(this.drawOsc);
 
     this.analyser.getByteTimeDomainData(dataArray);
     this.canvasCtx.fillStyle = 'rgb(200, 200, 200)';
@@ -65,9 +75,47 @@ export default class Oscilloscope extends React.Component {
     this.canvasCtx.stroke();
   }
 
+  drawBars = () => {
+    this.analyser.fftSize = 256;
+    let bufferLengthAlt = this.analyser.frequencyBinCount;
+    const dataArrayAlt = new Uint8Array(bufferLengthAlt);
+
+    this.animation = requestAnimationFrame(this.drawBars);
+
+    this.analyser.getByteFrequencyData(dataArrayAlt);
+
+    this.canvasCtx.fillStyle = 'rgb(0, 0, 0)';
+    this.canvasCtx.fillRect(0, 0, this.WIDTH, this.HEIGHT);
+
+    let barWidth = (this.WIDTH / bufferLengthAlt) * 2.5;
+    let barHeight;
+    let x = 0;
+
+    for (let i = 0; i < bufferLengthAlt; i++) {
+      barHeight = dataArrayAlt[i];
+
+      this.canvasCtx.fillStyle = 'rgb(' + (barHeight + 100) + ',50,50)';
+      this.canvasCtx.fillRect(x, this.HEIGHT - barHeight / 2, barWidth, barHeight / 2);
+
+      x += barWidth + 1;
+    }
+  }
+
+  toggleMode = e => {
+    e.preventDefault();
+    if (this.state.mode === 'osc') {
+      this.setState({ mode: 'bar' });
+    } else {
+      this.setState({ mode: 'osc' });
+    }
+  }
+
   render() {
     return (
       <div className="oscilloscope">
+        <button onClick={this.toggleMode}>
+          {(this.state.mode === 'osc') ? "bar": "osc"}
+        </button>
         <canvas className="osc-canvas" />
       </div>
     )
