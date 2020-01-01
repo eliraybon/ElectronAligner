@@ -21,7 +21,7 @@ export default class Kick {
     this.setup();
     debugger;
     this.osc.frequency.setValueAtTime(this.tone, time + 0.001);
-    this.gain.gain.setValueAtTime(this.volume, time + 0.1);
+    this.gain.gain.setValueAtTime(this.volume, time);
 
     this.osc.frequency.exponentialRampToValueAtTime(0.01, time + this.decay);
     this.gain.gain.exponentialRampToValueAtTime(0.01, time + this.decay);
