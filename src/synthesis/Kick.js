@@ -16,14 +16,15 @@ export default class Kick {
   trigger = time => {
     this.setup();
 
-    this.osc.frequency.setValueAtTime(150, time);
-    this.gain.gain.setValueAtTime(1, time);
+    this.osc.frequency.setValueAtTime(150, time + 0.001);
+    this.gain.gain.setValueAtTime(1, time + 0.1);
 
     this.osc.frequency.exponentialRampToValueAtTime(0.01, time + 0.5);
     this.gain.gain.exponentialRampToValueAtTime(0.01, time + 0.5);
+    this.gain.gain.linearRampToValueAtTime(0, time + 0.5 + 0.1)
 
     this.osc.start(time);
 
-    this.osc.stop(time + 0.5);
+    this.osc.stop(time + 0.5 + 0.1);
   }
 }
