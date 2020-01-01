@@ -22,6 +22,11 @@ export default class DrumBoy extends React.Component {
         volume: 1,
         tone: 100,
         decay: 0.2
+      },
+      hat: {
+        volume: 1,
+        tone: 130,
+        decay: 0.5
       }
     };
 
@@ -84,7 +89,6 @@ export default class DrumBoy extends React.Component {
       const updatedSound = state[sound];
       if (setting === 'volume' || setting === 'decay') {
         updatedSound[setting] = value / 100;
-        console.log(updatedSound);
       } else {
         updatedSound[setting] = value;
       }
@@ -116,6 +120,7 @@ export default class DrumBoy extends React.Component {
             <SoundControls 
               kick={this.state.kick}
               snare={this.state.snare}
+              hat={this.state.hat}
               updateSound={this.updateSound}
               colorScheme={this.state.colorScheme}
             />
@@ -129,6 +134,7 @@ export default class DrumBoy extends React.Component {
           analyser={this.analyser}
           kick={this.state.kick}
           snare={this.state.snare}
+          hat={this.state.hat}
           colorScheme={this.state.colorScheme}
         />
       </div>
