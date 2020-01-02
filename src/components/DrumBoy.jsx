@@ -1,5 +1,5 @@
 import React from 'react';
-import { Transport } from 'tone';
+import Tone, { Transport } from 'tone';
 import LogoAndButtons from './Main/LogoAndButtons';
 import Oscilloscope from './Main/Oscilloscope';
 import SoundControls from './Main/SoundControls';
@@ -40,9 +40,17 @@ export default class DrumBoy extends React.Component {
     const context = Transport.context.rawContext;
     this.analyser = context.createAnalyser();
     this.masterVolume = context.createGain();
-
-    this.analyser.connect(this.masterVolume);
+    this.bitCrusher = new Tone.BitCrusher(4);
+    this.testSynth = new Tone.Synth();
+    this.testSynth.connect(this.bitCrusher);
+    debugger;
+    this.analyser.connect(this.bitCrusher.input);
+    this.bitCrusher.connect(this.masterVolume);
     this.masterVolume.connect(context.destination);
+
+    // this.analyser.connect(this.masterVolume);
+    // this.bitCrusher.connect(context.destination);
+    // this.masterVolume.connect(context.destination);
 
     Transport.bpm.value = 120;
     Transport.loop = true;
@@ -50,6 +58,7 @@ export default class DrumBoy extends React.Component {
     Transport.loopEnd = "1m";
 
     document.addEventListener('keydown', e => {
+      debugger;
       switch (e.keyCode) {
         case 32:
           this.togglePlay();
@@ -59,6 +68,9 @@ export default class DrumBoy extends React.Component {
           break;
         case 40: 
           this.updateBpmFromArrowKey(this.state.bpm - 1);
+          break;
+        case 74: 
+          this.testSynth.triggerAttackRelease('C4', '4n');
           break;
         default:
           return;
