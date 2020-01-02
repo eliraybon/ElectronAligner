@@ -32,6 +32,20 @@ export default class Wildcards extends React.Component {
     }
   }
 
+  toggleWah = () => {
+    const { wah } = this.props;
+    if (wah.wet.value === 0) {
+      wah.wet.value = 1;
+    } else {
+      wah.wet.value = 0;
+    }
+  }
+
+  togglePingPong = () => {
+    const { pingPong } = this.props;
+    (pingPong.wet.value === 0) ? pingPong.wet.value = 1 : pingPong.wet.value = 0;
+  }
+
   toggleRain = () => {
     (this.rain.paused) ? this.rain.play() : this.rain.pause();
   }
@@ -85,6 +99,22 @@ export default class Wildcards extends React.Component {
           key="chorus"
         >
           Chorus
+        </li>
+
+        <li
+          className="wildcard"
+          onClick={this.toggleWah}
+          key="wah"
+        >
+          Wah
+        </li>
+
+        <li
+          className="wildcard"
+          onClick={this.togglePingPong}
+          key="pong"
+        >
+          PingPong
         </li>
 
 

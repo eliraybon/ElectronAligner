@@ -45,11 +45,17 @@ export default class DrumBoy extends React.Component {
     this.bitCrusher.wet.value = 0;
     this.chorus = new Tone.Chorus();
     this.chorus.wet.value = 0;
+    this.wah = new Tone.AutoWah();
+    this.wah.wet.value = 0;
+    this.pingPong = new Tone.PingPongDelay();
+    this.pingPong.wet.value = 0;
 
     //input -> effects -> masterVolume -> analyser -> output 
     this.effects.connect(this.bitCrusher.input);
     this.bitCrusher.connect(this.chorus.input);
-    this.chorus.connect(this.masterVolume);
+    this.chorus.connect(this.wah.input);
+    this.wah.connect(this.pingPong.input);
+    this.pingPong.connect(this.masterVolume);
     this.masterVolume.connect(this.analyser);
     this.analyser.connect(context.destination);
 
@@ -177,6 +183,8 @@ export default class DrumBoy extends React.Component {
             context={Transport.context.rawContext}
             effects={this.effects}
             bitCrusher={this.bitCrusher}
+            wah={this.wah}
+            pingPong={this.pingPong}
             chorus={this.chorus}
             colorScheme={this.state.colorScheme} 
           />
