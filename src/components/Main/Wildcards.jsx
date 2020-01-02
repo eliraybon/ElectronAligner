@@ -14,6 +14,24 @@ export default class Wildcards extends React.Component {
     })
   }
 
+  toggleBitCrusher = () => {
+    const { bitCrusher } = this.props;
+    if (bitCrusher.wet.value === 0) {
+      bitCrusher.wet.value = 1;
+    } else {
+      bitCrusher.wet.value = 0;
+    }
+  }
+
+  toggleChorus = () => {
+    const { chorus } = this.props;
+    if (chorus.wet.value === 0) {
+      chorus.wet.value = 1;
+    } else {
+      chorus.wet.value = 0;
+    }
+  }
+
   toggleRain = () => {
     (this.rain.paused) ? this.rain.play() : this.rain.pause();
   }
@@ -55,10 +73,18 @@ export default class Wildcards extends React.Component {
 
         <li
           className="wildcard"
-          // onClick={this.triggerBitCrusher}
+          onClick={this.toggleBitCrusher}
           key="donotpress"
         >
           Do not press
+        </li>
+
+        <li
+          className="wildcard"
+          onClick={this.toggleChorus}
+          key="chorus"
+        >
+          Chorus
         </li>
 
 

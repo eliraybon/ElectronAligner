@@ -176,6 +176,8 @@ export default class DrumBoy extends React.Component {
           <Wildcards 
             context={Transport.context.rawContext}
             effects={this.effects}
+            bitCrusher={this.bitCrusher}
+            chorus={this.chorus}
             colorScheme={this.state.colorScheme} 
           />
         </div>
