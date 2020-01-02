@@ -43,7 +43,7 @@ export default class Wildcards extends React.Component {
 
   togglePingPong = () => {
     const { pingPong } = this.props;
-    (pingPong.wet.value === 0) ? pingPong.wet.value = 1 : pingPong.wet.value = 0;
+    (pingPong.wet.value === 0) ? pingPong.wet.value = 0.5 : pingPong.wet.value = 0;
   }
 
   toggleRain = () => {
