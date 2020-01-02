@@ -26,7 +26,42 @@ export default class Wildcards extends React.Component {
           onClick={this.toggleRain}
           key="rain"
         >
+          R
         </li>
+
+        <li
+          className="wildcard"
+          // onClick={this.triggerBark}
+          key="dog"
+        >
+          Dog
+        </li>
+
+        <li
+          className="wildcard"
+          // onClick={this.triggerMeow}
+          key="cat"
+        >
+          Cat
+        </li>
+
+        <li
+          className="wildcard"
+          // onClick={this.triggerBeepBoops}
+          key="robot"
+        >
+          *Beep*
+        </li>
+
+        <li
+          className="wildcard"
+          // onClick={this.triggerBitCrusher}
+          key="donotpress"
+        >
+          Do not press
+        </li>
+
+
       </ul>
     )
   }
