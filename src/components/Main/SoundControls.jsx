@@ -9,6 +9,15 @@ export default class SoundControls extends React.Component {
   render() {
     return (
       <div className="sound-controls">
+        <input
+          className="master-volume"
+          type="range"
+          value={this.props.masterVolume * 100}
+          min={0}
+          max={100}
+          onChange={this.props.changeMasterVolume}
+        />
+
         <div className="sc-left">
           <div className="kick-controls">
             <h3>Kick</h3>

@@ -21,7 +21,7 @@ export default class StepSequeuncer extends React.Component {
     this.transport = transport;
     this.context = transport.context;
     this.analyser = analyser;
-    debugger;
+
     this.kick = new Kick(this.context, this.analyser, kick);
     this.snare = new Snare(this.context, this.analyser, snare);
     this.hat = new Hat(this.context, this.analyser, hat);
@@ -38,7 +38,7 @@ export default class StepSequeuncer extends React.Component {
     document.addEventListener('keydown', e => {
       console.log(e.keyCode);
       const time = this.props.transport.context.rawContext.currentTime;
-      switch (e.keyCode) {
+      switch (e.keyCode) {  
         case 13: 
           this.setState({ step: 0 });
           break;
