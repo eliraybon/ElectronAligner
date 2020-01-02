@@ -1,6 +1,13 @@
 .wildcards {
+  display: flex;
   width: 100%;
   height: 50px;
   padding: 5px 10px;
   background: blue;
+}
+
+.wildcard {
+  width: 30px;
+  height: 30px;
+  background: olivedrab;
 }

@@ -160,7 +160,11 @@ export default class DrumBoy extends React.Component {
             />
           </div>
 
-          <Wildcards colorScheme={this.state.colorScheme} />
+          <Wildcards 
+            context={Transport.context.rawContext}
+            analyser={this.analyser}
+            colorScheme={this.state.colorScheme} 
+          />
         </div>
 
         <StepSequencer 
