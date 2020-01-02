@@ -18,6 +18,13 @@ export default class SoundControls extends React.Component {
           onChange={this.props.changeMasterVolume}
         />
 
+        <button
+          className="mute-button"
+          onClick={this.props.toggleMute}
+        >
+          Mute
+        </button>
+
         <div className="sc-left">
           <div className="kick-controls">
             <h3>Kick</h3>
