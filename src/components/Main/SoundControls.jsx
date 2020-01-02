@@ -121,7 +121,7 @@ export default class SoundControls extends React.Component {
               className="clap-input"
               type="range"
               min={300}
-              max={800}
+              max={1000}
               value={this.props.clap.tone}
               onChange={e => this.updateSound(e, 'clap', 'tone')}
             />
