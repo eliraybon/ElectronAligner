@@ -1,6 +1,20 @@
 import React from 'react';
 
 export default class SoundControls extends React.Component {
+  constructor(props) {
+    super(props);
+
+    document.addEventListener('keydown', e => {
+      switch (e.keyCode) {
+        case 77:
+          this.props.toggleMute();
+          break;
+        default:
+          return;
+      }
+    })
+  }
+
   updateSound = (e, sound, setting) => {
     const value = parseInt(e.currentTarget.value);
     this.props.updateSound(sound, setting, value);

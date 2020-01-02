@@ -13,6 +13,8 @@
   left: 0px;
 }
 
-/* .mute-button {
-
-} */
+.mute-button {
+  position: absolute;
+  top: -18px;
+  right: 0px;
+}
