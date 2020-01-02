@@ -1,5 +1,5 @@
 import React from 'react';
-import { Transport } from 'tone';
+import Tone, { Transport } from 'tone';
 import LogoAndButtons from './Main/LogoAndButtons';
 import Oscilloscope from './Main/Oscilloscope';
 import SoundControls from './Main/SoundControls';
@@ -38,11 +38,26 @@ export default class DrumBoy extends React.Component {
     };
 
     const context = Transport.context.rawContext;
-    this.analyser = context.createAnalyser();
+    this.effects = context.createGain();
     this.masterVolume = context.createGain();
+    this.analyser = context.createAnalyser();
+    this.bitCrusher = new Tone.BitCrusher(4);
+    this.bitCrusher.wet.value = 0;
+    this.chorus = new Tone.Chorus();
+    this.chorus.wet.value = 0;
+    this.wah = new Tone.AutoWah();
+    this.wah.wet.value = 0;
+    this.pingPong = new Tone.PingPongDelay();
+    this.pingPong.wet.value = 0;
 
-    this.analyser.connect(this.masterVolume);
-    this.masterVolume.connect(context.destination);
+    //input -> effects -> masterVolume -> analyser -> output 
+    this.effects.connect(this.bitCrusher.input);
+    this.bitCrusher.connect(this.chorus.input);
+    this.chorus.connect(this.wah.input);
+    this.wah.connect(this.pingPong.input);
+    this.pingPong.connect(this.masterVolume);
+    this.masterVolume.connect(this.analyser);
+    this.analyser.connect(context.destination);
 
     Transport.bpm.value = 120;
     Transport.loop = true;
@@ -50,6 +65,7 @@ export default class DrumBoy extends React.Component {
     Transport.loopEnd = "1m";
 
     document.addEventListener('keydown', e => {
+      debugger;
       switch (e.keyCode) {
         case 32:
           this.togglePlay();
@@ -59,6 +75,9 @@ export default class DrumBoy extends React.Component {
           break;
         case 40: 
           this.updateBpmFromArrowKey(this.state.bpm - 1);
+          break;
+        case 74: 
+          this.testSynth.triggerAttackRelease('C4', '4n');
           break;
         default:
           return;
@@ -160,12 +179,20 @@ export default class DrumBoy extends React.Component {
             />
           </div>
 
-          <Wildcards colorScheme={this.state.colorScheme} />
+          <Wildcards 
+            context={Transport.context.rawContext}
+            effects={this.effects}
+            bitCrusher={this.bitCrusher}
+            wah={this.wah}
+            pingPong={this.pingPong}
+            chorus={this.chorus}
+            colorScheme={this.state.colorScheme} 
+          />
         </div>
 
         <StepSequencer 
           transport={Transport} 
-          analyser={this.analyser}
+          effects={this.effects}
           kick={this.state.kick}
           snare={this.state.snare}
           hat={this.state.hat}

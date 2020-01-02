@@ -1,7 +1,7 @@
 export default class Kick {
-  constructor(context, analyser, sound) {
+  constructor(context, effects, sound) {
     this.context = context.rawContext;
-    this.analyser = analyser;
+    this.effects = effects;
 
     this.tone = sound.tone;
     this.volume = sound.volume;
@@ -12,7 +12,7 @@ export default class Kick {
     this.osc = this.context.createOscillator();
     this.gain = this.context.createGain();
     this.osc.connect(this.gain);
-    this.gain.connect(this.analyser);
+    this.gain.connect(this.effects);
     // this.gain.connect(this.context.destination)
   }
 
