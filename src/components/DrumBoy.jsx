@@ -12,6 +12,8 @@ export default class DrumBoy extends React.Component {
     this.state = {
       bpm: 120,
       playing: false,
+      masterVolume: 1,
+      prevVolume: 1,
       colorScheme: '--color--',
       kick: {
         volume: 1,
@@ -37,7 +39,10 @@ export default class DrumBoy extends React.Component {
 
     const context = Transport.context.rawContext;
     this.analyser = context.createAnalyser();
-    this.analyser.connect(context.destination);
+    this.masterVolume = context.createGain();
+
+    this.analyser.connect(this.masterVolume);
+    this.masterVolume.connect(context.destination);
 
     Transport.bpm.value = 120;
     Transport.loop = true;
@@ -101,6 +106,26 @@ export default class DrumBoy extends React.Component {
     })
   }
 
+  changeMasterVolume = e => {
+    debugger;
+    const masterVolume = e.currentTarget.value / 100;
+    this.setState({ masterVolume });
+    this.masterVolume.gain.setValueAtTime(masterVolume, Transport.context.currentTime);
+  }
+
+  toggleMute = () => {
+    const time = Transport.context.currentTime;
+    if (!this.state.masterVolume) {
+      const prevVolume = this.state.prevVolume;
+      this.setState({ masterVolume: prevVolume });
+      this.masterVolume.gain.setValueAtTime(prevVolume, time);
+    } else {
+      const masterVolume = this.state.masterVolume;
+      this.setState({ prevVolume: masterVolume, masterVolume: 0 });
+      this.masterVolume.gain.setValueAtTime(0, time);
+    }
+  }
+
   render() {
     return (
       <div className="drum-boy">
@@ -127,7 +152,10 @@ export default class DrumBoy extends React.Component {
               snare={this.state.snare}
               hat={this.state.hat}
               clap={this.state.clap}
+              masterVolume={this.state.masterVolume}
               updateSound={this.updateSound}
+              changeMasterVolume={this.changeMasterVolume}
+              toggleMute={this.toggleMute}
               colorScheme={this.state.colorScheme}
             />
           </div>

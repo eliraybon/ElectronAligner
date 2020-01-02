@@ -1,6 +1,20 @@
 import React from 'react';
 
 export default class SoundControls extends React.Component {
+  constructor(props) {
+    super(props);
+
+    document.addEventListener('keydown', e => {
+      switch (e.keyCode) {
+        case 77:
+          this.props.toggleMute();
+          break;
+        default:
+          return;
+      }
+    })
+  }
+
   updateSound = (e, sound, setting) => {
     const value = parseInt(e.currentTarget.value);
     this.props.updateSound(sound, setting, value);
@@ -9,6 +23,22 @@ export default class SoundControls extends React.Component {
   render() {
     return (
       <div className="sound-controls">
+        <input
+          className="master-volume"
+          type="range"
+          value={this.props.masterVolume * 100}
+          min={0}
+          max={100}
+          onChange={this.props.changeMasterVolume}
+        />
+
+        <button
+          className="mute-button"
+          onClick={this.props.toggleMute}
+        >
+          Mute
+        </button>
+
         <div className="sc-left">
           <div className="kick-controls">
             <h3>Kick</h3>

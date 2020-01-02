@@ -1,7 +1,20 @@
 .sound-controls {
   display: flex;
+  position: relative;
   width: 30%;
   min-width: 300px;
   padding: 10px;
   background: green;
+}
+
+.master-volume { 
+  position: absolute;
+  top: -17px;
+  left: 0px;
+}
+
+.mute-button {
+  position: absolute;
+  top: -18px;
+  right: 0px;
 }

@@ -28,7 +28,8 @@ export default class Snare {
     this.noise.connect(noiseFilter);
     this.noiseEnvelope = this.context.createGain();
     noiseFilter.connect(this.noiseEnvelope);
-    this.noiseEnvelope.connect(this.context.destination);
+    this.noiseEnvelope.connect(this.analyser);
+    // this.noiseEnvelope.connect(this.context.destination);
     this.osc = this.context.createOscillator();
     this.osc.type = 'triangle';
     this.oscEnvelope = this.context.createGain();
