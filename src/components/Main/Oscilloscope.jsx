@@ -6,7 +6,7 @@ export default class Oscilloscope extends React.Component {
     const { context, analyser } = this.props;
     this.state = {
       mode: 'osc' //two modes: 'osc' and 'bar'
-    }
+    };
 
     this.animation = null;
 

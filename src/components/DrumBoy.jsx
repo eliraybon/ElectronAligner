@@ -27,6 +27,11 @@ export default class DrumBoy extends React.Component {
         volume: 1,
         tone: 130,
         decay: 0.5
+      },
+      clap: {
+        volume: 1,
+        tone: 600,
+        decay: 0.3
       }
     };
 
@@ -121,6 +126,7 @@ export default class DrumBoy extends React.Component {
               kick={this.state.kick}
               snare={this.state.snare}
               hat={this.state.hat}
+              clap={this.state.clap}
               updateSound={this.updateSound}
               colorScheme={this.state.colorScheme}
             />
@@ -135,6 +141,7 @@ export default class DrumBoy extends React.Component {
           kick={this.state.kick}
           snare={this.state.snare}
           hat={this.state.hat}
+          clap={this.state.clap}
           colorScheme={this.state.colorScheme}
         />
       </div>

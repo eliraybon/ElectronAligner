@@ -7,7 +7,6 @@ export default class SoundControls extends React.Component {
   }
 
   render() {
-    debugger;
     return (
       <div className="sound-controls">
         <div className="sc-left">
@@ -103,6 +102,37 @@ export default class SoundControls extends React.Component {
               max={200}
               value={this.props.hat.decay * 100}
               onChange={e => this.updateSound(e, 'hat', 'decay')}
+            />
+          </div>
+
+          <div className="clap-controls">
+            <h3>Clap</h3>
+
+            <input
+              className="clap-input"
+              type="range"
+              min={0}
+              max={100}
+              value={this.props.clap.volume * 100}
+              onChange={e => this.updateSound(e, 'clap', 'volume')}
+            />
+
+            <input
+              className="clap-input"
+              type="range"
+              min={300}
+              max={800}
+              value={this.props.clap.tone}
+              onChange={e => this.updateSound(e, 'clap', 'tone')}
+            />
+
+            <input
+              className="clap-input"
+              type="range"
+              min={0}
+              max={75}
+              value={this.props.clap.decay * 100}
+              onChange={e => this.updateSound(e, 'clap', 'decay')}
             />
           </div>
         </div>

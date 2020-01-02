@@ -19,7 +19,7 @@ export default class Kick {
   trigger = time => {
     if (!this.volume) return;
     this.setup();
-    debugger;
+
     this.osc.frequency.setValueAtTime(this.tone, time + 0.001);
     this.gain.gain.setValueAtTime(this.volume, time);
 
