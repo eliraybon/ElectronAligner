@@ -12,7 +12,27 @@ export default class DrumBoy extends React.Component {
     this.state = {
       bpm: 120,
       playing: false,
-      colorScheme: '--color--'
+      colorScheme: '--color--',
+      kick: {
+        volume: 1,
+        tone: 150,
+        decay: 0.5
+      },
+      snare: {
+        volume: 1,
+        tone: 100,
+        decay: 0.2
+      },
+      hat: {
+        volume: 1,
+        tone: 130,
+        decay: 0.5
+      },
+      clap: {
+        volume: 1,
+        tone: 600,
+        decay: 0.3
+      }
     };
 
     const context = Transport.context.rawContext;
@@ -69,6 +89,18 @@ export default class DrumBoy extends React.Component {
     this.setState({ colorScheme: e.target.value })
   }
 
+  updateSound = (sound, setting, value) => {
+    this.setState(state => {
+      const updatedSound = state[sound];
+      if (setting === 'volume' || setting === 'decay') {
+        updatedSound[setting] = value / 100;
+      } else {
+        updatedSound[setting] = value;
+      }
+      return { [sound]: updatedSound };
+    })
+  }
+
   render() {
     return (
       <div className="drum-boy">
@@ -91,6 +123,11 @@ export default class DrumBoy extends React.Component {
             />
 
             <SoundControls 
+              kick={this.state.kick}
+              snare={this.state.snare}
+              hat={this.state.hat}
+              clap={this.state.clap}
+              updateSound={this.updateSound}
               colorScheme={this.state.colorScheme}
             />
           </div>
@@ -101,6 +138,10 @@ export default class DrumBoy extends React.Component {
         <StepSequencer 
           transport={Transport} 
           analyser={this.analyser}
+          kick={this.state.kick}
+          snare={this.state.snare}
+          hat={this.state.hat}
+          clap={this.state.clap}
           colorScheme={this.state.colorScheme}
         />
       </div>

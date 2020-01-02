@@ -4,28 +4,9 @@ export default class LogoAndButtons extends React.Component {
   render() {
     return (
       <div className="logo-and-buttons">
-        <div className="logo-and-color">
-          <div className="logo">
-            <h1 className="main-heading">Drum Boy</h1>
-            <p className="advance">Advance</p>
-          </div>
-
-          <select 
-            className="color-select"
-            value={this.props.colorScheme}
-            onChange={e => this.props.changeColorScheme(e)}
-          >
-            <option 
-              className="color-option" 
-              value="--color--"
-              disabled
-            >
-              --color--
-            </option>
-            <option className="color-option" value="default">default</option>
-            <option className="color-option" value="classic">classic</option>
-            <option className="color-option" value="dokidoki">dokidoki</option>
-          </select>
+        <div className="logo">
+          <h1 className="main-heading">Drum Boy</h1>
+          <p className="advance">Advance</p>
         </div>
 
         <div className="buttons">
@@ -43,6 +24,23 @@ export default class LogoAndButtons extends React.Component {
             onChange={this.props.updateBpm}
           />
         </div>
+
+        <select
+          className="color-select"
+          value={this.props.colorScheme}
+          onChange={e => this.props.changeColorScheme(e)}
+        >
+          <option
+            className="color-option"
+            value="--color--"
+            disabled
+          >
+            --color--
+          </option>
+          <option className="color-option" value="default">default</option>
+          <option className="color-option" value="classic">classic</option>
+          <option className="color-option" value="dokidoki">dokidoki</option>
+        </select>
       </div>
     )
   }

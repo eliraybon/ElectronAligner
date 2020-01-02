@@ -1,7 +1,11 @@
 export default class Kick {
-  constructor(context, analyser) {
+  constructor(context, analyser, sound) {
     this.context = context.rawContext;
     this.analyser = analyser;
+
+    this.tone = sound.tone;
+    this.volume = sound.volume;
+    this.decay = sound.decay;
   }
 
   setup = () => {
@@ -12,18 +16,19 @@ export default class Kick {
     // this.gain.connect(this.context.destination)
   }
 
-  //should you try setting up in the constructor to avoid repeat setup?
   trigger = time => {
+    if (!this.volume) return;
     this.setup();
 
-    this.osc.frequency.setValueAtTime(150, time);
-    this.gain.gain.setValueAtTime(1, time);
+    this.osc.frequency.setValueAtTime(this.tone, time + 0.001);
+    this.gain.gain.setValueAtTime(this.volume, time);
 
-    this.osc.frequency.exponentialRampToValueAtTime(0.01, time + 0.5);
-    this.gain.gain.exponentialRampToValueAtTime(0.01, time + 0.5);
+    this.osc.frequency.exponentialRampToValueAtTime(0.01, time + this.decay);
+    this.gain.gain.exponentialRampToValueAtTime(0.01, time + this.decay);
+    this.gain.gain.linearRampToValueAtTime(0, time + this.decay + 0.1)
 
     this.osc.start(time);
 
-    this.osc.stop(time + 0.5);
+    this.osc.stop(time + this.decay + 0.1);
   }
 }
