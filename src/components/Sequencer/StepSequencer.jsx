@@ -16,16 +16,16 @@ export default class StepSequeuncer extends React.Component {
       step: 0,
     };
 
-    const { transport, analyser, kick, snare, hat, clap } = this.props;
+    const { transport, effects, kick, snare, hat, clap } = this.props;
 
     this.transport = transport;
     this.context = transport.context;
-    this.analyser = analyser;
+    this.effects = effects;
 
-    this.kick = new Kick(this.context, this.analyser, kick);
-    this.snare = new Snare(this.context, this.analyser, snare);
-    this.hat = new Hat(this.context, this.analyser, hat);
-    this.clap = new Clap(this.context, this.analyser, clap);
+    this.kick = new Kick(this.context, this.effects, kick);
+    this.snare = new Snare(this.context, this.effects, snare);
+    this.hat = new Hat(this.context, this.effects, hat);
+    this.clap = new Clap(this.context, this.effects, clap);
 
     this.kickSequence = new Sequence();
     this.snareSequence = new Sequence();
@@ -62,10 +62,10 @@ export default class StepSequeuncer extends React.Component {
 
   componentDidUpdate = prevProps => {
     const { kick, snare, hat, clap } = this.props;
-    this.kick = new Kick(this.transport.context, this.analyser, kick);
-    this.snare = new Snare(this.transport.context, this.analyser, snare);
-    this.hat = new Hat(this.transport.context, this.analyser, hat);
-    this.clap = new Clap(this.transport.context, this.analyser, clap);
+    this.kick = new Kick(this.transport.context, this.effects, kick);
+    this.snare = new Snare(this.transport.context, this.effects, snare);
+    this.hat = new Hat(this.transport.context, this.effects, hat);
+    this.clap = new Clap(this.transport.context, this.effects, clap);
   }
 
   repeat = time => {

@@ -38,19 +38,20 @@ export default class DrumBoy extends React.Component {
     };
 
     const context = Transport.context.rawContext;
-    this.analyser = context.createAnalyser();
+    this.effects = context.createGain();
     this.masterVolume = context.createGain();
+    this.analyser = context.createAnalyser();
     this.bitCrusher = new Tone.BitCrusher(4);
-    this.testSynth = new Tone.Synth();
-    this.testSynth.connect(this.bitCrusher);
-    debugger;
-    this.analyser.connect(this.bitCrusher.input);
-    this.bitCrusher.connect(this.masterVolume);
-    this.masterVolume.connect(context.destination);
+    this.bitCrusher.wet.value = 0;
+    this.chorus = new Tone.Chorus();
+    this.chorus.wet.value = 0;
 
-    // this.analyser.connect(this.masterVolume);
-    // this.bitCrusher.connect(context.destination);
-    // this.masterVolume.connect(context.destination);
+    //input -> effects -> masterVolume -> analyser -> output 
+    this.effects.connect(this.bitCrusher.input);
+    this.bitCrusher.connect(this.chorus.input);
+    this.chorus.connect(this.masterVolume);
+    this.masterVolume.connect(this.analyser);
+    this.analyser.connect(context.destination);
 
     Transport.bpm.value = 120;
     Transport.loop = true;
@@ -174,14 +175,14 @@ export default class DrumBoy extends React.Component {
 
           <Wildcards 
             context={Transport.context.rawContext}
-            analyser={this.analyser}
+            effects={this.effects}
             colorScheme={this.state.colorScheme} 
           />
         </div>
 
         <StepSequencer 
           transport={Transport} 
-          analyser={this.analyser}
+          effects={this.effects}
           kick={this.state.kick}
           snare={this.state.snare}
           hat={this.state.hat}

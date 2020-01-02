@@ -1,7 +1,7 @@
 export default class Clap {
-  constructor(context, analyser, sound) {
+  constructor(context, effects, sound) {
     this.context = context.rawContext;
-    this.analyser = analyser;
+    this.effects = effects;
 
     this.tone = sound.tone;
     this.volume = sound.volume;
@@ -31,7 +31,7 @@ export default class Clap {
 
     this.noise.connect(this.filter);
     this.filter.connect(this.envelope);
-    this.envelope.connect(this.analyser);
+    this.envelope.connect(this.effects);
     // this.envelope.connect(this.context.destination);
   }
 
