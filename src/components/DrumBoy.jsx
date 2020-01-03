@@ -67,6 +67,7 @@ export default class DrumBoy extends React.Component {
     document.addEventListener('keydown', e => {
       switch (e.keyCode) {
         case 32:
+          e.preventDefault();
           this.togglePlay();
           break;
         case 38: 

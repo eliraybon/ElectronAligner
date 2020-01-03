@@ -178,9 +178,9 @@ input[type=range].master-volume {
 }
 
 input[type=range].master-volume::-webkit-slider-runnable-track {
-  background: rgb(128, 128, 128, 0.5);
+  background: rgb(128, 128, 128);
 }
 
 .master-volume {
-  top: -24px;
+  top: -26px;
 }

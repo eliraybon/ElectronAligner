@@ -79,7 +79,7 @@ export default class Wildcards extends React.Component {
           onClick={this.toggleRain}
           key="rain"
         >
-          Rain
+          <i className="fas fa-tint fa-2x"></i>
         </li>
 
         <li
@@ -87,7 +87,11 @@ export default class Wildcards extends React.Component {
           // onClick={this.triggerBark}
           key="dog"
         >
-          Dog
+          <img
+            src="https://mpng.pngfly.com/20180704/goy/kisspng-pixel-art-color-by-number-game-kawaii-dog-drawin-5b3d888c0a4b07.6347806215307593080422.jpg"
+            width="20px"
+            height="auto"
+          />
         </li>
 
         <li
@@ -95,7 +99,7 @@ export default class Wildcards extends React.Component {
           // onClick={this.triggerMeow}
           key="cat"
         >
-          Cat
+          <i class="fas fa-cat"></i>
         </li>
 
         <li

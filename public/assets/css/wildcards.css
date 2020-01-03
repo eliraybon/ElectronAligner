@@ -11,11 +11,20 @@
 }
 
 .wildcard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: 'Aldrich', sans-serif;
-  /* width: 30px;
-  height: 30px; */
+  border: 1px solid white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
 }
 
 .active-effect {
   color: rgb(143, 97, 230);
+}
+
+.fa-tint {
+  color: blue;
 }

@@ -12,6 +12,7 @@ Using the looping sequencer, users can create their own beats live!
 -  Live audio visualizer with multiple modes 
 -  Audio effects (bitcrusher, chorus, wah-wah, delay)
 -  Samples for ambience (rain, city, synth drone)
+-  Selectable color schemes 
 -  Tempo Control 
 -  Volume Control
 

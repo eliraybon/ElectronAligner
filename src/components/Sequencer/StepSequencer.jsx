@@ -40,6 +40,7 @@ export default class StepSequeuncer extends React.Component {
       const time = this.props.transport.context.rawContext.currentTime;
       switch (e.keyCode) {  
         case 13: 
+          e.preventDefault();
           this.setState({ step: 0 });
           break;
         // case 65:
