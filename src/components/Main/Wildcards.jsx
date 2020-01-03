@@ -82,6 +82,7 @@ export default class Wildcards extends React.Component {
           <img
             className="wildcard-image"
             src="/assets/images/raindrops-solid.svg"
+            alt=""
           />
         </li>
 
@@ -93,6 +94,7 @@ export default class Wildcards extends React.Component {
           <img
             className="wildcard-image"
             src="/assets/images/dog-solid.svg"
+            alt=""
           />
         </li>
 
@@ -104,6 +106,7 @@ export default class Wildcards extends React.Component {
           <img
             className="wildcard-image"
             src="/assets/images/cat-solid.svg"
+            alt=""
           />
         </li>
 
@@ -115,6 +118,7 @@ export default class Wildcards extends React.Component {
           <img
             className="wildcard-image"
             src="/assets/images/robot-solid.svg"
+            alt=""
           />
         </li>
 
@@ -126,6 +130,7 @@ export default class Wildcards extends React.Component {
           <img
             className="wildcard-image"
             src="/assets/images/bomb-solid.svg"
+            alt=""
           />
         </li>
 
@@ -137,6 +142,7 @@ export default class Wildcards extends React.Component {
           <img
             className="wildcard-image"
             src="/assets/images/cassette-tape-solid.svg"
+            alt=""
           />
         </li>
 
@@ -148,6 +154,7 @@ export default class Wildcards extends React.Component {
           <img
             className="wildcard-image"
             src="/assets/images/wave-sine-solid.svg"
+            alt=""
           />
         </li>
 
@@ -159,6 +166,7 @@ export default class Wildcards extends React.Component {
           <img
             className="wildcard-image"
             src="/assets/images/table-tennis-solid.svg"
+            alt=""
           />
         </li>
 

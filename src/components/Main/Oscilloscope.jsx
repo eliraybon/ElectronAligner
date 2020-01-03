@@ -3,7 +3,7 @@ import React from 'react';
 export default class Oscilloscope extends React.Component {
   constructor(props) {
     super(props);
-    const { context, analyser } = this.props;
+    const { analyser } = this.props;
     this.state = {
       mode: 'osc' //two modes: 'osc' and 'bar'
     };

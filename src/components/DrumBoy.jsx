@@ -196,6 +196,8 @@ export default class DrumBoy extends React.Component {
           snare={this.state.snare}
           hat={this.state.hat}
           clap={this.state.clap}
+          togglePlay={this.togglePlay}
+          toggleMute={this.toggleMute}
           colorScheme={this.state.colorScheme}
         />
       </div>

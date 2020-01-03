@@ -34,31 +34,20 @@ export default class StepSequeuncer extends React.Component {
 
     transport.scheduleRepeat(this.repeat, '16n');
 
-    //sets up keyboard drumming
     document.addEventListener('keydown', e => {
-      console.log(e.keyCode);
-      const time = this.props.transport.context.rawContext.currentTime;
       switch (e.keyCode) {  
         case 13: 
           e.preventDefault();
           this.setState({ step: 0 });
           break;
-        // case 65:
-        //   this.kick.trigger(time);
-        //   break;
-        // case 83:
-        //   this.snare.trigger(time);
-        //   break;
-        // case 68:
-        //   this.hat.trigger(time);
-        //   break;
-        // case 70:
-        //   this.clap.trigger(time);
-        //   break;
         default:
           return;
       }
     })
+
+    document.addEventListener("DOMContentLoaded", () => {
+      this.bootUpSequencer();
+    });
   }
 
   componentDidUpdate = prevProps => {
@@ -96,6 +85,17 @@ export default class StepSequeuncer extends React.Component {
       default:
         return;
     }
+  }
+
+  bootUpSequencer = () => {
+    debugger;
+    this.props.toggleMute();
+    this.props.togglePlay();
+    setTimeout(() => {
+      this.props.toggleMute();
+      this.props.togglePlay();
+      this.setState({ step: 0 });
+    }, 1000)
   }
 
   render() {
