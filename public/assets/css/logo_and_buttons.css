@@ -3,7 +3,9 @@
 .logo-and-buttons {
   position: relative;
   width: 30%;
-  height: 150px;
+  height: 170px;
+  /* box-sizing: border-box; */
+  /* border: 2px solid gray; */
   min-width: 300px;
   padding: 10px;
   border-radius: 5px;
@@ -65,8 +67,14 @@
 .color-select {
   position: absolute;
   font-family: 'Aldrich', sans-serif;
-  top: -19px;
+  top: -22px;
   left: 0px;
+}
+
+@media not all and (min-resolution:.001dpcm) { 
+  .color-select {
+    top: -24px;
+  }
 }
 
 .fa-pause {

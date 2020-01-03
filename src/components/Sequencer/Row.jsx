@@ -5,7 +5,8 @@ export default class Row extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="row-container">
+        <p className="track-label">{this.props.sound}</p>
         <ul className="row">
           {this.props.steps.map((step, i) => {
             return (

@@ -11,16 +11,20 @@
 
 canvas {
   box-sizing: border-box;
+  border: 2px solid gray;
+  height: 170px;
 }
 
 .osc-canvas {
-  border: 2px solid gray;
+  box-sizing: border-box;
   border-radius: 5px;
+  height: 170px;
+  margin-top: 20px;
 }
 
 .visual-select {
   position: absolute;
   font-family: 'Aldrich', sans-serif;
-  top: -18px;
+  top: -22px;
   left: 5px;
 }

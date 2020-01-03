@@ -3,3 +3,17 @@
   justify-content: space-between;
   width: 100%;
 }
+
+.row-container {
+  position: relative;
+}
+
+.track-label {
+  display: none;
+  position: absolute;
+  font-family: 'Aldrich', sans-serif;
+  left: -28px;
+  top: 32px;
+  font-size: 10px;
+  font-weight: 700;
+}

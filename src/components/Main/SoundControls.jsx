@@ -41,7 +41,7 @@ export default class SoundControls extends React.Component {
 
         <div className="sc-left">
           <div className="kick-controls">
-            <h3>Kick</h3>
+            <h3 className="sound-label">Kick</h3>
 
             <input
               className="kick-input"
@@ -72,7 +72,7 @@ export default class SoundControls extends React.Component {
           </div>
 
           <div className="snare-controls">
-            <h3>Snare</h3>
+            <h3 className="sound-label">Snare</h3>
 
             <input
               className="snare-input"
@@ -103,9 +103,23 @@ export default class SoundControls extends React.Component {
           </div>
         </div>
 
+        <div className="sc-middle">
+          <div className="setting-labels">
+           <p>Volume</p>
+           <p>Tone</p>
+           <p>Decay</p>
+          </div>
+
+          <div className="setting-labels">
+            <p>Volume</p>
+            <p>Tone</p>
+            <p>Decay</p>
+          </div>
+        </div>
+
         <div className="sc-right">
           <div className="hat-controls">
-            <h3>Hat</h3>
+            <h3 className="sound-label">Hat</h3>
 
             <input
               className="hat-input"
@@ -136,7 +150,7 @@ export default class SoundControls extends React.Component {
           </div>
 
           <div className="clap-controls">
-            <h3>Clap</h3>
+            <h3 className="sound-label">Clap</h3>
 
             <input
               className="clap-input"

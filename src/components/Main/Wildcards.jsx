@@ -66,7 +66,6 @@ export default class Wildcards extends React.Component {
   }
 
   render() {
-    debugger;
     const bitCrusher = (this.state.bitCrusher) ? "active-effect" : "";
     const rain = (this.state.rain) ? "active-effect" : "";
     const chorus = (this.state.chorus) ? "active-effect" : "";

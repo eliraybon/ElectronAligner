@@ -21,14 +21,14 @@ export default class Container extends React.Component {
           className="instruction-button"
           onClick={this.toggleInstructions}
         >
-          Instructions
+          <i className="fas fa-bars fa-2x"></i>
         </button>
 
         {this.state.instructions && (
           <div className="instructions-background" onClick={this.toggleInstructions}>
             <div className="instructions">
-              <button>Close</button>
-              I am the instructions
+              <button><i className="fas fa-times fa-2x"></i></button>
+              <h2>Instructions</h2>
             </div>
           </div>
         )}
