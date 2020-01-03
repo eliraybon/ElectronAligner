@@ -46,11 +46,11 @@ export default class Oscilloscope extends React.Component {
     this.animation = requestAnimationFrame(this.drawOsc);
 
     this.analyser.getByteTimeDomainData(dataArray);
-    this.canvasCtx.fillStyle = 'rgb(200, 200, 200)';
+    this.canvasCtx.fillStyle = 'rgb(0, 0, 0)';//'rgb(256, 256, 256)';//'rgb(200, 200, 200)';
     this.canvasCtx.fillRect(0, 0, this.WIDTH, this.HEIGHT);
 
     this.canvasCtx.lineWidth = 2;
-    this.canvasCtx.strokeStyle = 'rgb(0, 0, 0)';
+    this.canvasCtx.strokeStyle = 'rgb(143, 97, 230)'; //'rgb(0, 0, 0)';
 
     this.canvasCtx.beginPath();
 
@@ -94,7 +94,7 @@ export default class Oscilloscope extends React.Component {
     for (let i = 0; i < bufferLengthAlt; i++) {
       barHeight = dataArrayAlt[i];
 
-      this.canvasCtx.fillStyle = 'rgb(' + (barHeight + 100) + ',50,50)';
+      this.canvasCtx.fillStyle = 'rgb(' + (barHeight + 50) + ',97,230)';//'rgb(' + (barHeight + 100) + ',50,50)';
       this.canvasCtx.fillRect(x, this.HEIGHT - barHeight / 2, barWidth, barHeight / 2);
 
       x += barWidth + 1;

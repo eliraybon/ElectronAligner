@@ -65,9 +65,9 @@ export default class DrumBoy extends React.Component {
     Transport.loopEnd = "1m";
 
     document.addEventListener('keydown', e => {
-      debugger;
       switch (e.keyCode) {
         case 32:
+          e.preventDefault();
           this.togglePlay();
           break;
         case 38: 
@@ -126,7 +126,6 @@ export default class DrumBoy extends React.Component {
   }
 
   changeMasterVolume = e => {
-    debugger;
     const masterVolume = e.currentTarget.value / 100;
     this.setState({ masterVolume });
     this.masterVolume.gain.setValueAtTime(masterVolume, Transport.context.currentTime);

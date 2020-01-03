@@ -18,6 +18,20 @@ span, article, footer, time, small {
   -webkit-font-smoothing: antialiased;
 }
 
+@media screen and (max-width: 1024px) {
+  html {
+    transform: rotate(90deg);
+  }
+}
+
+main {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  /* height: 100vh; */
+}
+
 ul {
   list-style: none;
 }

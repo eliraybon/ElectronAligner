@@ -40,20 +40,21 @@ export default class StepSequeuncer extends React.Component {
       const time = this.props.transport.context.rawContext.currentTime;
       switch (e.keyCode) {  
         case 13: 
+          e.preventDefault();
           this.setState({ step: 0 });
           break;
-        case 65:
-          this.kick.trigger(time);
-          break;
-        case 83:
-          this.snare.trigger(time);
-          break;
-        case 68:
-          this.hat.trigger(time);
-          break;
-        case 70:
-          this.clap.trigger(time);
-          break;
+        // case 65:
+        //   this.kick.trigger(time);
+        //   break;
+        // case 83:
+        //   this.snare.trigger(time);
+        //   break;
+        // case 68:
+        //   this.hat.trigger(time);
+        //   break;
+        // case 70:
+        //   this.clap.trigger(time);
+        //   break;
         default:
           return;
       }

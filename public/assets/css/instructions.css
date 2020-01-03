@@ -1,0 +1,31 @@
+.instruction-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;  
+  font-family: 'Aldrich', sans-serif;
+}
+
+.instructions-background {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  /* width: 100vw;
+  height: 100vh; */
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.instructions {
+  position: absolute;
+  z-index: 100;
+  background: blue;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 650px;
+  height: 350px;
+  border-radius: 5px;
+}
