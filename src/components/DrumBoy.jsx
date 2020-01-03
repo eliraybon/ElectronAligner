@@ -12,7 +12,7 @@ export default class DrumBoy extends React.Component {
     this.state = {
       bpm: 120,
       playing: false,
-      masterVolume: 1,
+      masterVolume: 0,
       prevVolume: 1,
       colorScheme: '--color--',
       kick: {
@@ -56,7 +56,8 @@ export default class DrumBoy extends React.Component {
     this.chorus.connect(this.wah.input);
     this.wah.connect(this.pingPong.input);
     this.pingPong.connect(this.masterVolume);
-    this.masterVolume.connect(this.analyser);
+    // this connection is now done after warmUp in Step Sequencer
+    // this.masterVolume.connect(this.analyser);
     this.analyser.connect(context.destination);
 
     Transport.bpm.value = 120;
@@ -68,6 +69,7 @@ export default class DrumBoy extends React.Component {
       switch (e.keyCode) {
         case 32:
           e.preventDefault();
+          if (document.getElementById('start-button')) return;
           this.togglePlay();
           break;
         case 38: 
@@ -146,7 +148,7 @@ export default class DrumBoy extends React.Component {
 
   render() {
     return (
-      <div className="drum-boy">
+      <div className="drum-boy" id="electron-aligner">
 
         <div className="main">
           <div className="top">
@@ -196,6 +198,10 @@ export default class DrumBoy extends React.Component {
           snare={this.state.snare}
           hat={this.state.hat}
           clap={this.state.clap}
+          masterVolume={this.masterVolume}
+          analyser={this.analyser}
+          togglePlay={this.togglePlay}
+          toggleMute={this.toggleMute}
           colorScheme={this.state.colorScheme}
         />
       </div>

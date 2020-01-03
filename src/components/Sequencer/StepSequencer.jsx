@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactLoading from 'react-loading'
 import Sequence from '../../util/Sequence';
 import StepBar from './StepBar';
 import Row from './Row';
@@ -14,6 +15,8 @@ export default class StepSequeuncer extends React.Component {
     super(props);
     this.state = {
       step: 0,
+      loaded: false, 
+      loading: false 
     };
 
     const { transport, effects, kick, snare, hat, clap } = this.props;
@@ -34,31 +37,27 @@ export default class StepSequeuncer extends React.Component {
 
     transport.scheduleRepeat(this.repeat, '16n');
 
-    //sets up keyboard drumming
     document.addEventListener('keydown', e => {
-      console.log(e.keyCode);
-      const time = this.props.transport.context.rawContext.currentTime;
       switch (e.keyCode) {  
         case 13: 
           e.preventDefault();
           this.setState({ step: 0 });
           break;
-        // case 65:
-        //   this.kick.trigger(time);
-        //   break;
-        // case 83:
-        //   this.snare.trigger(time);
-        //   break;
-        // case 68:
-        //   this.hat.trigger(time);
-        //   break;
-        // case 70:
-        //   this.clap.trigger(time);
-        //   break;
         default:
           return;
       }
     })
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const main = document.getElementById('electron-aligner');
+      main.addEventListener('click', this.pressStart);
+    })
+  }
+
+  pressStart = e => {
+    e.preventDefault();
+    document.getElementById('start-button').click();
+    document.getElementById('electron-aligner').removeEventListener('click', this.pressStart);
   }
 
   componentDidUpdate = prevProps => {
@@ -98,7 +97,60 @@ export default class StepSequeuncer extends React.Component {
     }
   }
 
+  warmUp = () => {
+    this.setState({ loading: true });
+    setTimeout(() => {
+      // this.props.toggleMute();
+      this.props.togglePlay();
+      setTimeout(() => {
+        this.props.toggleMute();
+        this.props.togglePlay();
+        setTimeout(() => {
+          this.setState({ step: 0 });
+          setTimeout(() => {
+            this.setState({ loading: false, loaded: true })
+          }, 200)
+        }, 10)
+      }, 200);
+    }, 500)
+  }
+
+  bootUpSequencer = () => {
+    const { masterVolume, analyser } = this.props;
+    this.warmUp();
+    setTimeout(() => {
+      masterVolume.connect(analyser);
+    }, 1000)
+  }
+
   render() {
+    if (!this.state.loaded && !this.state.loading) {
+      return (
+        <div className="start-button-container">
+          <button 
+            className="start-button" 
+            id="start-button"
+            onClick={this.bootUpSequencer}
+          >
+            Start
+          </button>
+
+          <div className="click-catcher"></div>
+        </div>
+      )
+    }
+
+    if (this.state.loading) {
+      return (
+        <div className="start-button-container">
+          <div className="loading-container">
+            <ReactLoading type={"bars"} color={"rgb(143, 97, 230)"} width={90} height={30}/>
+          </div>
+          <div className="click-catcher"></div>
+        </div>
+      )
+    }
+
     return (
       <div className="step-sequencer">
 

@@ -6,6 +6,7 @@ body {
   width: 80%;
   max-width: 1200px;
   min-width: 1024px;
+  min-height: 620px;
   margin: 5px auto;
   padding: 30px;
   background: black;

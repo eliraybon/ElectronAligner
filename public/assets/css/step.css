@@ -13,5 +13,4 @@
 .selected {
   background: rgb(143, 97, 230);
   border-style: inset;
-  /* filter: brightness(150%); */
 }

@@ -15,7 +15,8 @@
   justify-content: center;
   align-items: center;
   font-family: 'Aldrich', sans-serif;
-  border: 1px solid black;
+  border: 2px solid black;
+  /* border-style: outset; */
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -27,6 +28,7 @@
 }
 .active-effect {
   color: rgb(143, 97, 230);
-  border: 1px solid black;
+  border: 2px solid black;
+  /* border-style: inset; */
   background: rgb(143, 97, 230)
 }
