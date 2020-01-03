@@ -51,12 +51,12 @@ export default class DrumBoy extends React.Component {
     this.pingPong.wet.value = 0;
 
     //input -> effects -> masterVolume -> analyser -> output 
-    // this.effects.connect(this.bitCrusher.input);
     this.effects.connect(this.bitCrusher.input);
     this.bitCrusher.connect(this.chorus.input);
     this.chorus.connect(this.wah.input);
     this.wah.connect(this.pingPong.input);
     this.pingPong.connect(this.masterVolume);
+    // this connection is now done after warmUp in Step Sequencer
     // this.masterVolume.connect(this.analyser);
     this.analyser.connect(context.destination);
 

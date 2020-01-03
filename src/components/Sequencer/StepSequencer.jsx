@@ -52,14 +52,6 @@ export default class StepSequeuncer extends React.Component {
       const main = document.getElementById('electron-aligner');
       main.addEventListener('click', this.pressStart);
     })
-
-    // document.addEventListener("DOMContentLoaded", () => {
-    //   document.getElementById('electron-aligner').addEventListener("click", e => {
-    //     e.preventDefault();
-    //     document.getElementById('start-button').click();
-    //     document.removeEventListener("click")
-    //   })
-    // })
   }
 
   pressStart = e => {
@@ -123,22 +115,6 @@ export default class StepSequeuncer extends React.Component {
     }, 500)
   }
 
-  // bootUpSequencer = () => {
-  //   this.setState({ loading: true });
-  //   setTimeout(() => {
-  //     this.props.toggleMute();
-  //     this.props.togglePlay();
-  //     setTimeout(() => {
-  //       this.props.toggleMute();
-  //       this.props.togglePlay();
-  //       this.setState({ step: 0 });
-  //       setTimeout(() => {
-  //         this.setState({ loading: false, loaded: true });
-  //       }, 200)
-  //     })
-  //   }, 500);
-  // }
-
   bootUpSequencer = () => {
     const { masterVolume, analyser } = this.props;
     this.warmUp();
@@ -154,7 +130,6 @@ export default class StepSequeuncer extends React.Component {
           <button 
             className="start-button" 
             id="start-button"
-            // onClick={() => this.setState({ loading: true })}
             onClick={this.bootUpSequencer}
           >
             Start
