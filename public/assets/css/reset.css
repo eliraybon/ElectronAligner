@@ -21,6 +21,7 @@ span, article, footer, time, small {
 @media screen and (max-width: 1024px) {
   html {
     transform: rotate(90deg);
+    overflow-y: hidden;
   }
 }
 
@@ -28,6 +29,7 @@ main {
   position: relative;
   display: flex;
   justify-content: center;
+  overflow-y: hidden;
   /* align-items: center; */
   /* height: 100vh; */
 }
