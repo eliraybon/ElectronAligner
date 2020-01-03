@@ -1,5 +1,8 @@
-main {
-  position: relative;
+.instruction-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;  
+  font-family: 'Aldrich', sans-serif;
 }
 
 .instructions-background {

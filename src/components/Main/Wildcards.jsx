@@ -4,6 +4,16 @@ export default class Wildcards extends React.Component {
   constructor(props) {
     super(props);
     const { context, effects } = this.props;
+    this.state = {
+      rain: false, 
+      dog: false,
+      cat: false, 
+      robot: false, 
+      bitCrusher: false, 
+      chorus: false, 
+      wah: false,
+      pingPong: false
+    };
 
     document.addEventListener("DOMContentLoaded", () => {
       this.rain = document.getElementById('rain');
@@ -16,6 +26,7 @@ export default class Wildcards extends React.Component {
 
   toggleBitCrusher = () => {
     const { bitCrusher } = this.props;
+    this.setState(state => ({ bitCrusher: !state.bitCrusher }));
     if (bitCrusher.wet.value === 0) {
       bitCrusher.wet.value = 1;
     } else {
@@ -25,6 +36,7 @@ export default class Wildcards extends React.Component {
 
   toggleChorus = () => {
     const { chorus } = this.props;
+    this.setState(state => ({ chorus: !state.chorus }));
     if (chorus.wet.value === 0) {
       chorus.wet.value = 1;
     } else {
@@ -34,6 +46,7 @@ export default class Wildcards extends React.Component {
 
   toggleWah = () => {
     const { wah } = this.props;
+    this.setState(state => ({ wah: !state.wah }));
     if (wah.wet.value === 0) {
       wah.wet.value = 1;
     } else {
@@ -43,22 +56,31 @@ export default class Wildcards extends React.Component {
 
   togglePingPong = () => {
     const { pingPong } = this.props;
+    this.setState(state => ({ pingPong: !state.pingPong }));
     (pingPong.wet.value === 0) ? pingPong.wet.value = 0.5 : pingPong.wet.value = 0;
   }
 
   toggleRain = () => {
+    this.setState(state => ({ rain: !state.rain }));
     (this.rain.paused) ? this.rain.play() : this.rain.pause();
   }
 
   render() {
+    debugger;
+    const bitCrusher = (this.state.bitCrusher) ? "active-effect" : "";
+    const rain = (this.state.rain) ? "active-effect" : "";
+    const chorus = (this.state.chorus) ? "active-effect" : "";
+    const wah = (this.state.wah) ? "active-effect" : "";
+    const pingPong = (this.state.pingPong) ? "active-effect" : "";
+
     return (
       <ul className="wildcards">
         <li
-          className="wildcard"
+          className={`wildcard ${rain}`}
           onClick={this.toggleRain}
           key="rain"
         >
-          R
+          Rain
         </li>
 
         <li
@@ -86,15 +108,15 @@ export default class Wildcards extends React.Component {
         </li>
 
         <li
-          className="wildcard"
+          className={`wildcard ${bitCrusher}`}
           onClick={this.toggleBitCrusher}
           key="donotpress"
         >
-          Do not press
+          DON'T PRESS
         </li>
 
         <li
-          className="wildcard"
+          className={`wildcard ${chorus}`}
           onClick={this.toggleChorus}
           key="chorus"
         >
@@ -102,7 +124,7 @@ export default class Wildcards extends React.Component {
         </li>
 
         <li
-          className="wildcard"
+          className={`wildcard ${wah}`}
           onClick={this.toggleWah}
           key="wah"
         >
@@ -110,7 +132,7 @@ export default class Wildcards extends React.Component {
         </li>
 
         <li
-          className="wildcard"
+          className={`wildcard ${pingPong}`}
           onClick={this.togglePingPong}
           key="pong"
         >

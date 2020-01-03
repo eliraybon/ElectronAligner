@@ -5,8 +5,7 @@ export default class LogoAndButtons extends React.Component {
     return (
       <div className="logo-and-buttons">
         <div className="logo">
-          <h1 className="main-heading">Drum Boy</h1>
-          <p className="advance">Advance</p>
+          <h1 className="main-heading">Electron Aligner</h1>
         </div>
 
         <div className="buttons">
@@ -14,15 +13,24 @@ export default class LogoAndButtons extends React.Component {
             className="play-button"
             onClick={this.props.togglePlay}
           >
-            {(this.props.playing) ? "Pause" : "Play"}
+            {this.props.playing && (
+              <i className="fas fa-pause"></i>
+            )}
+
+            {!this.props.playing && (
+              <i className="fas fa-play"></i>
+            )}
           </div>
 
-          <input
+          {/* <input
             className="bpm-select"
             type="number"
             value={this.props.bpm}
             onChange={this.props.updateBpm}
-          />
+          /> */}
+          <div className="bpm-select">
+            {this.props.bpm}
+          </div>
         </div>
 
         <select

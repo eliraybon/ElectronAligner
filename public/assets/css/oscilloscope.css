@@ -1,22 +1,26 @@
 .oscilloscope {
   position: relative;
   width: 30%;
+  height: 150px;
   min-width: 300px;
   border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: green;
+}
+
+canvas {
+  box-sizing: border-box;
 }
 
 .osc-canvas {
-  width: 90%;
-  height: 90%;
+  border: 2px solid gray;
   border-radius: 5px;
 }
 
 .visual-select {
   position: absolute;
+  font-family: 'Aldrich', sans-serif;
   top: -18px;
   left: 5px;
 }

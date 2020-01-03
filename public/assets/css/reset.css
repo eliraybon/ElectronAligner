@@ -18,6 +18,14 @@ span, article, footer, time, small {
   -webkit-font-smoothing: antialiased;
 }
 
+main {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 ul {
   list-style: none;
 }
