@@ -15,16 +15,18 @@
   justify-content: center;
   align-items: center;
   font-family: 'Aldrich', sans-serif;
-  border: 1px solid white;
+  border: 1px solid black;
   border-radius: 50%;
   width: 40px;
   height: 40px;
 }
 
+.wildcard-image {
+  width: 20px;
+  height: 20px;
+}
 .active-effect {
   color: rgb(143, 97, 230);
-}
-
-.fa-tint {
-  color: blue;
+  border: 1px solid black;
+  background: rgb(143, 97, 230)
 }

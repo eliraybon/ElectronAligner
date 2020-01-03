@@ -79,7 +79,10 @@ export default class Wildcards extends React.Component {
           onClick={this.toggleRain}
           key="rain"
         >
-          <i className="fas fa-tint fa-2x"></i>
+          <img
+            className="wildcard-image"
+            src="/assets/images/raindrops-solid.svg"
+          />
         </li>
 
         <li
@@ -88,9 +91,8 @@ export default class Wildcards extends React.Component {
           key="dog"
         >
           <img
-            src="https://mpng.pngfly.com/20180704/goy/kisspng-pixel-art-color-by-number-game-kawaii-dog-drawin-5b3d888c0a4b07.6347806215307593080422.jpg"
-            width="20px"
-            height="auto"
+            className="wildcard-image"
+            src="/assets/images/dog-solid.svg"
           />
         </li>
 
@@ -99,7 +101,10 @@ export default class Wildcards extends React.Component {
           // onClick={this.triggerMeow}
           key="cat"
         >
-          <i class="fas fa-cat"></i>
+          <img
+            className="wildcard-image"
+            src="/assets/images/cat-solid.svg"
+          />
         </li>
 
         <li
@@ -107,7 +112,10 @@ export default class Wildcards extends React.Component {
           // onClick={this.triggerBeepBoops}
           key="robot"
         >
-          *Beep*
+          <img
+            className="wildcard-image"
+            src="/assets/images/robot-solid.svg"
+          />
         </li>
 
         <li
@@ -115,7 +123,10 @@ export default class Wildcards extends React.Component {
           onClick={this.toggleBitCrusher}
           key="donotpress"
         >
-          DON'T PRESS
+          <img
+            className="wildcard-image"
+            src="/assets/images/bomb-solid.svg"
+          />
         </li>
 
         <li
@@ -123,7 +134,10 @@ export default class Wildcards extends React.Component {
           onClick={this.toggleChorus}
           key="chorus"
         >
-          Chorus
+          <img
+            className="wildcard-image"
+            src="/assets/images/cassette-tape-solid.svg"
+          />
         </li>
 
         <li
@@ -131,7 +145,10 @@ export default class Wildcards extends React.Component {
           onClick={this.toggleWah}
           key="wah"
         >
-          Wah
+          <img
+            className="wildcard-image"
+            src="/assets/images/wave-sine-solid.svg"
+          />
         </li>
 
         <li
@@ -139,7 +156,10 @@ export default class Wildcards extends React.Component {
           onClick={this.togglePingPong}
           key="pong"
         >
-          PingPong
+          <img
+            className="wildcard-image"
+            src="/assets/images/table-tennis-solid.svg"
+          />
         </li>
 
 
