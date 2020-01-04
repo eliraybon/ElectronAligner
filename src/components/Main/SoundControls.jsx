@@ -4,6 +4,10 @@ export default class SoundControls extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      muted: false
+    };
+
     document.addEventListener('keydown', e => {
       switch (e.keyCode) {
         case 77:
@@ -20,6 +24,11 @@ export default class SoundControls extends React.Component {
     this.props.updateSound(sound, setting, value);
   }
 
+  toggleMute = () => {
+    this.setState(state => ({ muted: !state.muted }));
+    this.props.toggleMute();
+  }
+
   render() {
     return (
       <div className="sound-controls">
@@ -34,9 +43,23 @@ export default class SoundControls extends React.Component {
 
         <button
           className="mute-button"
-          onClick={this.props.toggleMute}
+          onClick={this.toggleMute}
         >
-          Mute
+          {this.state.muted && (
+            <img
+              className="wildcard-image"
+              src="/assets/images/volume-mute-solid.svg"
+              alt=""
+            />
+          )}
+
+          {!this.state.muted && (
+            <img
+              className="wildcard-image"
+              src="/assets/images/volume-up-solid.svg"
+              alt=""
+            />
+          )}
         </button>
 
         <div className="sc-left">

@@ -114,7 +114,11 @@ export default class Oscilloscope extends React.Component {
     return (
       <div className="oscilloscope">
         <button className="visual-select" onClick={this.toggleMode}>
-          {(this.state.mode === 'osc') ? "bar": "osc"}
+          <img
+            className="wildcard-image"
+            src="/assets/images/waveform-path-solid.svg"
+            alt=""
+          />
         </button>
         <canvas className="osc-canvas" />
       </div>
