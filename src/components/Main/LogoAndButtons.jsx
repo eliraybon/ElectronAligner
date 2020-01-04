@@ -44,6 +44,8 @@ export default class LogoAndButtons extends React.Component {
           <option className="color-option" value="future time">Future Time</option>
           <option className="color-option" value="sparks">Sparks</option>
           <option className="color-option" value="dokidoki">Doki doki</option>
+          <option className="color-option" value="free">Free</option>
+          <option className="color-option" value="hxh">HxH</option>
         </select>
       </div>
     )

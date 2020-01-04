@@ -33,3 +33,23 @@
   background: rgb(248, 103, 131);
   border-style: inset;
 }
+
+.step.free {
+  border: 3px solid rgb(71, 209, 222, 0.6);
+  border-style: outset;
+}
+
+.selected.free {
+  background: rgb(71, 209, 222);
+  border-style: inset;
+}
+
+.step.hxh {
+  border: 3px solid rgb(81, 145, 78, 0.6);
+  border-style: outset;
+}
+
+.selected.hxh {
+  background: rgb(81, 145, 78);
+  border-style: inset;
+}

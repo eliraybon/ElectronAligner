@@ -48,3 +48,19 @@
 .dokidoki.active-effect {
   background: rgb(248, 103, 131);
 }
+
+.wildcards.free {
+  border: 1px solid rgb(71, 209, 222);
+}
+
+.free.active-effect {
+  background: rgb(71, 209, 222);
+}
+
+.wildcards.hxh {
+  border: 1px solid rgb(81, 145, 78);
+}
+
+.hxh.active-effect {
+  background: rgb(81, 145, 78); 
+}

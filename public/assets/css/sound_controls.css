@@ -86,6 +86,14 @@
   background: rgb(248, 103, 131);
 }
 
+.sound-controls.free {
+  background: rgb(71, 209, 222);
+}
+
+.sound-controls.hxh {
+  background: rgb(81, 145, 78);
+}
+
 /* slider styles */
 input[type=range] {
   -webkit-appearance: none;
@@ -215,4 +223,30 @@ input[type=range].dokidoki::-moz-range-thumb {
 
 input[type=range].dokidoki::-ms-thumb {
   background: rgb(192, 63, 89);
+}
+
+/* free */
+input[type=range].free::-webkit-slider-thumb {
+  background: rgb(25, 138, 148);
+}
+
+input[type=range].free::-moz-range-thumb {
+  background: rgb(25, 138, 148);
+}
+
+input[type=range].free::-ms-thumb {
+  background: rgb(25, 138, 148);
+}
+
+/* hxh */
+input[type=range].hxh::-webkit-slider-thumb {
+  background: rgb(53, 102, 50);
+}
+
+input[type=range].hxh::-moz-range-thumb {
+  background: rgb(53, 102, 50);
+}
+
+input[type=range].hxh::-ms-thumb {
+  background: rgb(53, 102, 50);
 }
