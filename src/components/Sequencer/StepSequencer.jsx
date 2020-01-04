@@ -129,6 +129,8 @@ export default class StepSequeuncer extends React.Component {
         return "rgb(143, 97, 230)";
       case "sparks":
         return "rgb(231, 133, 41)";
+      case "dokidoki":
+        return "rgb(248, 103, 131)";
       default:
         return "rgb(143, 97, 230)";
     }

@@ -40,3 +40,11 @@
 .sparks.active-effect {
   background: rgb(231, 133, 41);
 }
+
+.wildcards.dokidoki {
+  border: 1px solid rgb(248, 103, 131);
+}
+
+.dokidoki.active-effect {
+  background: rgb(248, 103, 131);
+}
