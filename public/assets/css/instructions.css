@@ -26,7 +26,8 @@
   z-index: 100;
   background: rgb(94, 94, 94);
   /* background: rgb(143, 97, 230); */
-  border: 2px solid black;
+  border: 1px solid white;
+  /* border: 2px solid black; */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

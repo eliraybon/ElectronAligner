@@ -6,21 +6,75 @@ export default class Wildcards extends React.Component {
     const { context, effects } = this.props;
     this.state = {
       rain: false, 
-      dog: false,
+      dracula: false, 
       cat: false, 
       robot: false, 
       bitCrusher: false, 
       chorus: false, 
       wah: false,
-      pingPong: false
+      pingPong: false,
+      science: false,
+      synth: false,
+      subway: false,
+      vinyl: false
     };
 
     document.addEventListener("DOMContentLoaded", () => {
+      //rain
       this.rain = document.getElementById('rain');
       const rainCtx = context.createMediaElementSource(this.rain);
-      this.gain = context.createGain();
-      rainCtx.connect(this.gain);
-      this.gain.connect(effects);
+      this.rainGain = context.createGain();
+      rainCtx.connect(this.rainGain);
+      this.rainGain.connect(effects);
+
+      //dracula 
+      this.dracula = document.getElementById('dracula');
+      const draculaCtx = context.createMediaElementSource(this.dracula);
+      this.draculaGain = context.createGain();
+      draculaCtx.connect(this.draculaGain);
+      this.draculaGain.connect(effects);
+
+      //cat
+      this.cat = document.getElementById('cat');
+      const catCtx = context.createMediaElementSource(this.cat);
+      this.catGain = context.createGain();
+      catCtx.connect(this.catGain);
+      this.catGain.connect(effects);
+
+      //robot 
+      this.robot = document.getElementById('robot');
+      const robotCtx = context.createMediaElementSource(this.robot);
+      this.robotGain = context.createGain();
+      robotCtx.connect(this.robotGain);
+      this.robotGain.connect(effects);
+
+      //science
+      this.science = document.getElementById('science');
+      const scienceCtx = context.createMediaElementSource(this.science);
+      this.scienceGain = context.createGain();
+      scienceCtx.connect(this.scienceGain);
+      this.scienceGain.connect(effects);
+
+      //synth
+      this.synth = document.getElementById('synth');
+      const synthCtx = context.createMediaElementSource(this.synth);
+      this.synthGain = context.createGain();
+      synthCtx.connect(this.synthGain);
+      this.synthGain.connect(effects);
+
+      //subway
+      this.subway = document.getElementById('subway');
+      const subwayCtx = context.createMediaElementSource(this.subway);
+      this.subwayGain = context.createGain();
+      subwayCtx.connect(this.subwayGain);
+      this.subwayGain.connect(effects);
+
+      //vinyl
+      this.vinyl = document.getElementById('vinyl');
+      const vinylCtx = context.createMediaElementSource(this.vinyl);
+      this.vinylGain = context.createGain();
+      vinylCtx.connect(this.vinylGain);
+      this.vinylGain.connect(effects);
     })
   }
 
@@ -65,12 +119,66 @@ export default class Wildcards extends React.Component {
     (this.rain.paused) ? this.rain.play() : this.rain.pause();
   }
 
+  toggleScience = () => {
+    this.setState(state => ({ science: !state.science }));
+    (this.science.paused) ? this.science.play() : this.science.pause();
+  }
+
+  toggleSynth = () => {
+    this.setState(state => ({ synth: !state.synth }));
+    (this.synth.paused) ? this.synth.play() : this.synth.pause();
+  }
+
+  toggleSubway = () => {
+    this.setState(state => ({ subway: !state.subway }));
+    (this.subway.paused) ? this.subway.play() : this.subway.pause();
+  }
+
+  toggleVinyl= () => {
+    this.setState(state => ({ vinyl: !state.vinyl }));
+    (this.vinyl.paused) ? this.vinyl.play() : this.vinyl.pause();
+  }
+
+  playDracula = () => {
+    if (!this.dracula.paused) return;
+    this.setState({ dracula: true });
+    this.dracula.play();
+    setTimeout(() => {
+      this.setState({ dracula: false });
+    }, 5500);
+  }
+
+  triggerMeow = () => {
+    if (!this.cat.paused) return;
+    this.setState({ cat: true });
+    this.cat.play();
+    setTimeout(() => {
+      this.setState({ cat: false });
+    }, 1000);
+  }
+
+  tryAgain = () => {
+    if (!this.robot.paused) return;
+    this.setState({ robot: true });
+    this.robot.play();
+    setTimeout(() => {
+      this.setState({ robot: false });
+    }, 2000);
+  }
+
   render() {
     const bitCrusher = (this.state.bitCrusher) ? "active-effect" : "";
     const rain = (this.state.rain) ? "active-effect" : "";
     const chorus = (this.state.chorus) ? "active-effect" : "";
     const wah = (this.state.wah) ? "active-effect" : "";
     const pingPong = (this.state.pingPong) ? "active-effect" : "";
+    const dracula = (this.state.dracula) ? "active-effect" : "";
+    const cat = (this.state.cat) ? "active-effect" : "";
+    const robot = (this.state.robot) ? "active-effect" : "";
+    const science = (this.state.science) ? "active-effect" : "";
+    const synth = (this.state.synth) ? "active-effect" : "";
+    const subway = (this.state.subway) ? "active-effect" : "";
+    const vinyl = (this.state.vinyl) ? "active-effect" : "";
 
     return (
       <ul className="wildcards">
@@ -87,20 +195,20 @@ export default class Wildcards extends React.Component {
         </li>
 
         <li
-          className="wildcard"
-          // onClick={this.triggerBark}
-          key="dog"
+          className={`wildcard ${dracula}`}
+          onClick={this.playDracula}
+          key="dracula"
         >
           <img
             className="wildcard-image"
-            src="/assets/images/dog-solid.svg"
+            src="/assets/images/bat-solid.svg"
             alt=""
           />
         </li>
 
         <li
-          className="wildcard"
-          // onClick={this.triggerMeow}
+          className={`wildcard ${cat}`}
+          onClick={this.triggerMeow}
           key="cat"
         >
           <img
@@ -111,13 +219,61 @@ export default class Wildcards extends React.Component {
         </li>
 
         <li
-          className="wildcard"
-          // onClick={this.triggerBeepBoops}
+          className={`wildcard ${robot}`}
+          onClick={this.tryAgain}
           key="robot"
         >
           <img
             className="wildcard-image"
             src="/assets/images/robot-solid.svg"
+            alt=""
+          />
+        </li>
+
+        <li
+          className={`wildcard ${science}`}
+          onClick={this.toggleScience}
+          key="science"
+        >
+          <img
+            className="wildcard-image"
+            src="/assets/images/flask-solid.svg"
+            alt=""
+          />
+        </li>
+
+        <li
+          className={`wildcard ${synth}`}
+          onClick={this.toggleSynth}
+          key="synth"
+        >
+          <img
+            className="wildcard-image"
+            src="/assets/images/piano-keyboard-solid.svg"
+            alt=""
+          />
+        </li>
+
+        <li
+          className={`wildcard ${subway}`}
+          onClick={this.toggleSubway}
+          key="subway"
+        >
+          <img
+            className="wildcard-image"
+            src="/assets/images/subway-solid.svg"
+            alt=""
+          />
+        </li>
+
+        <li
+          className={`wildcard ${vinyl}`}
+          onClick={this.toggleVinyl}
+          key="vinyl"
+        >
+          <img
+            className="wildcard-image"
+            src="/assets/images/turntable-solid.svg"
             alt=""
           />
         </li>
