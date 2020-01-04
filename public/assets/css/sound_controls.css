@@ -78,9 +78,9 @@
   width: 80%;
 }
 
-/* .kick-input, .snare-input, .hat-input, .clap-input { 
-  margin: 3px;
-} */
+.sound-controls.sparks {
+  background: rgb(231, 133, 41);
+}
 
 /* slider styles */
 input[type=range] {
@@ -183,4 +183,18 @@ input[type=range].master-volume::-webkit-slider-runnable-track {
 
 .master-volume {
   top: -26px;
+}
+
+/* color schemes */
+
+input[type=range].sparks::-webkit-slider-thumb {
+  background: rgb(179, 94, 14);
+}
+
+input[type=range]::-moz-range-thumb {
+  background: rgb(179, 94, 14);
+}
+
+input[type=range]::-ms-thumb {
+  background: rgb(179, 94, 14);
 }

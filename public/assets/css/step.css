@@ -3,7 +3,6 @@
   width: 50px;
   height: 50px;
   border-radius: 5px;
-  background:rgb(143, 97, 230, 0.6);
   background: gray;
   margin: 10px;
   border: 3px solid rgb(143, 97, 230, 0.6);
@@ -13,4 +12,13 @@
 .selected {
   background: rgb(143, 97, 230);
   border-style: inset;
+}
+
+.step.sparks {
+  border: 3px solid rgb(231, 133, 41, 0.6);
+  border-style: outset;
+}
+
+.selected.sparks {
+  background: rgb(231, 133, 41);
 }

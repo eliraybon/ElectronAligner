@@ -14,7 +14,8 @@ export default class DrumBoy extends React.Component {
       playing: false,
       masterVolume: 0,
       prevVolume: 1,
-      colorScheme: '--color--',
+      // colorScheme: '--color--',
+      colorScheme: 'sparks',
       kick: {
         volume: 1,
         tone: 150,

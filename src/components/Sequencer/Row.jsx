@@ -15,6 +15,7 @@ export default class Row extends React.Component {
                 sound={this.props.sound}
                 stepNumber={i}
                 updateSequence={this.props.updateSequence}
+                colorScheme={this.props.colorScheme}
                 key={i}
               />
             )
