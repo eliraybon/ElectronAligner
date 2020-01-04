@@ -18,8 +18,8 @@
 
 .mute-button {
   position: absolute;
-  top: -22px;
-  right: 0px;
+  top: -24px;
+  right: 5px;
   font-family: 'Aldrich', sans-serif;
 }
 
@@ -78,9 +78,21 @@
   width: 80%;
 }
 
-/* .kick-input, .snare-input, .hat-input, .clap-input { 
-  margin: 3px;
-} */
+.sound-controls.sparks {
+  background: rgb(231, 133, 41);
+}
+
+.sound-controls.dokidoki {
+  background: rgb(248, 103, 131);
+}
+
+.sound-controls.free {
+  background: rgb(71, 209, 222);
+}
+
+.sound-controls.hxh {
+  background: rgb(81, 145, 78);
+}
 
 /* slider styles */
 input[type=range] {
@@ -183,4 +195,58 @@ input[type=range].master-volume::-webkit-slider-runnable-track {
 
 .master-volume {
   top: -26px;
+}
+
+/* color schemes */
+
+/* sparks */
+input[type=range].sparks::-webkit-slider-thumb {
+  background: rgb(179, 94, 14);
+}
+
+input[type=range].sparks::-moz-range-thumb {
+  background: rgb(179, 94, 14);
+}
+
+input[type=range].sparks::-ms-thumb {
+  background: rgb(179, 94, 14);
+}
+
+/* doki doki */
+input[type=range].dokidoki::-webkit-slider-thumb {
+  background: rgb(192, 63, 89);
+}
+
+input[type=range].dokidoki::-moz-range-thumb {
+  background: rgb(192, 63, 89);
+}
+
+input[type=range].dokidoki::-ms-thumb {
+  background: rgb(192, 63, 89);
+}
+
+/* free */
+input[type=range].free::-webkit-slider-thumb {
+  background: rgb(25, 138, 148);
+}
+
+input[type=range].free::-moz-range-thumb {
+  background: rgb(25, 138, 148);
+}
+
+input[type=range].free::-ms-thumb {
+  background: rgb(25, 138, 148);
+}
+
+/* hxh */
+input[type=range].hxh::-webkit-slider-thumb {
+  background: rgb(53, 102, 50);
+}
+
+input[type=range].hxh::-moz-range-thumb {
+  background: rgb(53, 102, 50);
+}
+
+input[type=range].hxh::-ms-thumb {
+  background: rgb(53, 102, 50);
 }

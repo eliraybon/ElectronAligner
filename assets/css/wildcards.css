@@ -6,8 +6,8 @@
   height: 50px;
   padding: 5px 10px;
   background: gray;
-  border: 2px solid rgb(53, 53, 53);
   border: 2px solid rgb(143, 97, 230);
+  border-radius: 5px;
 }
 
 .wildcard {
@@ -31,4 +31,36 @@
   border: 2px solid black;
   /* border-style: inset; */
   background: rgb(143, 97, 230)
+}
+
+.wildcards.sparks {
+  border: 2px solid rgb(231, 133, 41);
+}
+
+.sparks.active-effect {
+  background: rgb(231, 133, 41);
+}
+
+.wildcards.dokidoki {
+  border: 2px solid rgb(248, 103, 131);
+}
+
+.dokidoki.active-effect {
+  background: rgb(248, 103, 131);
+}
+
+.wildcards.free {
+  border: 2px solid rgb(71, 209, 222);
+}
+
+.free.active-effect {
+  background: rgb(71, 209, 222);
+}
+
+.wildcards.hxh {
+  border: 2px solid rgb(81, 145, 78);
+}
+
+.hxh.active-effect {
+  background: rgb(81, 145, 78); 
 }

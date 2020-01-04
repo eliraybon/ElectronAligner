@@ -41,7 +41,6 @@
 }
 
 .instructions-header {
-  font-family: 'Aldrich', sans-serif;
   font-family: 'Faster One', cursive;
   font-size: 34px;
   text-align: center;
@@ -71,3 +70,37 @@
   font-family: 'Aldrich', sans-serif;
   text-align: center;
 } 
+
+/* .mobile {
+  width: 80%;
+} */
+
+.mobile {
+  position: fixed;
+  z-index: 100;
+  background: rgb(143, 97, 230);
+  border: 1px solid white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  min-height: 200px;
+  border-radius: 5px;
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.mobile-header {
+  font-family: 'Faster One', cursive;
+  font-size: 34px;
+  margin-bottom: 20px;
+}
+
+.mobile p {
+  font-family: 'Aldrich', sans-serif;
+  color: white;
+  font-size: 24px;
+}
