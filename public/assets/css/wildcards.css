@@ -34,7 +34,7 @@
 }
 
 .wildcards.sparks {
-  border: 1px solid rgb(231, 133, 41);
+  border: 2px solid rgb(231, 133, 41);
 }
 
 .sparks.active-effect {
@@ -42,7 +42,7 @@
 }
 
 .wildcards.dokidoki {
-  border: 1px solid rgb(248, 103, 131);
+  border: 2px solid rgb(248, 103, 131);
 }
 
 .dokidoki.active-effect {
@@ -50,7 +50,7 @@
 }
 
 .wildcards.free {
-  border: 1px solid rgb(71, 209, 222);
+  border: 2px solid rgb(71, 209, 222);
 }
 
 .free.active-effect {
@@ -58,7 +58,7 @@
 }
 
 .wildcards.hxh {
-  border: 1px solid rgb(81, 145, 78);
+  border: 2px solid rgb(81, 145, 78);
 }
 
 .hxh.active-effect {
