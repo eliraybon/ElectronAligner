@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/ElectronAligner/static/js/main.60641817.chunk.js",
+    "main.js.map": "/ElectronAligner/static/js/main.60641817.chunk.js.map",
+    "runtime-main.js": "/ElectronAligner/static/js/runtime-main.5b75897f.js",
+    "runtime-main.js.map": "/ElectronAligner/static/js/runtime-main.5b75897f.js.map",
+    "static/js/2.d7310e92.chunk.js": "/ElectronAligner/static/js/2.d7310e92.chunk.js",
+    "static/js/2.d7310e92.chunk.js.map": "/ElectronAligner/static/js/2.d7310e92.chunk.js.map",
+    "index.html": "/ElectronAligner/index.html",
+    "precache-manifest.483ff38e3ed87a983f7b23a81afa802f.js": "/ElectronAligner/precache-manifest.483ff38e3ed87a983f7b23a81afa802f.js",
+    "service-worker.js": "/ElectronAligner/service-worker.js",
+    "static/js/2.d7310e92.chunk.js.LICENSE": "/ElectronAligner/static/js/2.d7310e92.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5b75897f.js",
+    "static/js/2.d7310e92.chunk.js",
+    "static/js/main.60641817.chunk.js"
+  ]
+}

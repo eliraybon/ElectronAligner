@@ -1,0 +1,18 @@
+.step-bar {
+  display: flex;
+}
+
+.step-bar-light {
+  width: 50px;
+  height: 10px;
+  background: rgb(128, 127, 127, 0.5);
+  margin: 10px;
+  border: 1px solid rgb(128, 127, 127, 0.9);
+  border-radius: 2px;
+}
+
+.active-light {
+  background: red;
+  background: rgb(230, 97, 219);
+  background: white;
+}

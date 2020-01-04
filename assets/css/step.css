@@ -1,0 +1,16 @@
+.step {
+  box-sizing: border-box;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  background:rgb(143, 97, 230, 0.6);
+  background: gray;
+  margin: 10px;
+  border: 3px solid rgb(143, 97, 230, 0.6);
+  border-style: outset;
+}
+
+.selected {
+  background: rgb(143, 97, 230);
+  border-style: inset;
+}

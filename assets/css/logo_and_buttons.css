@@ -1,0 +1,85 @@
+
+.logo-and-buttons {
+  position: relative;
+  width: 30%;
+  height: 170px;
+  /* box-sizing: border-box; */
+  /* border: 2px solid gray; */
+  min-width: 300px;
+  padding: 10px;
+  border-radius: 5px;
+  background: rgb(143, 97, 230);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Aldrich', sans-serif;
+}
+
+.logo-and-color {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-heading {
+  font-family: 'Faster One', cursive;
+  color: black;
+  font-size: 24px;
+  /* font-weight: 700; */
+}
+
+.advance {
+  font-size: 14px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-and-buttons .buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 45%;
+}
+
+.play-button, .bpm-select{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: black;
+  font-size: 12px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bpm-select {
+  font-family: 'Aldrich', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.color-select {
+  position: absolute;
+  font-family: 'Aldrich', sans-serif;
+  top: -22px;
+  left: 0px;
+}
+
+@media not all and (min-resolution:.001dpcm) { 
+  .color-select {
+    top: -24px;
+  }
+}
+
+.fa-pause {
+  color: white;
+} 
+
+.fa-play {
+  color: white;
+}
