@@ -70,6 +70,22 @@
   left: 0px;
 }
 
+.logo-and-buttons.sparks {
+  background: rgb(231, 133, 41);
+}
+
+.logo-and-buttons.dokidoki {
+  background: rgb(248, 103, 131);
+}
+
+.logo-and-buttons.free {
+  background: rgb(71, 209, 222);
+}
+
+.logo-and-buttons.hxh {
+  background: rgb(81, 145, 78);
+}
+
 @media not all and (min-resolution:.001dpcm) { 
   .color-select {
     top: -24px;

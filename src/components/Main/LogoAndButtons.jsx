@@ -2,8 +2,10 @@ import React from 'react';
 
 export default class LogoAndButtons extends React.Component {
   render() {
+    const color = this.props.colorScheme;
+
     return (
-      <div className="logo-and-buttons">
+      <div className={`logo-and-buttons ${color}`}>
         <div className="logo">
           <h1 className="main-heading">Electron Aligner</h1>
         </div>
@@ -22,12 +24,6 @@ export default class LogoAndButtons extends React.Component {
             )}
           </div>
 
-          {/* <input
-            className="bpm-select"
-            type="number"
-            value={this.props.bpm}
-            onChange={this.props.updateBpm}
-          /> */}
           <div className="bpm-select">
             {this.props.bpm}
           </div>
@@ -45,9 +41,11 @@ export default class LogoAndButtons extends React.Component {
           >
             --color--
           </option>
-          <option className="color-option" value="default">default</option>
-          <option className="color-option" value="classic">classic</option>
-          <option className="color-option" value="dokidoki">dokidoki</option>
+          <option className="color-option" value="future time">Future Time</option>
+          <option className="color-option" value="sparks">Sparks</option>
+          <option className="color-option" value="dokidoki">Doki doki</option>
+          <option className="color-option" value="free">Free</option>
+          <option className="color-option" value="hxh">HxH</option>
         </select>
       </div>
     )

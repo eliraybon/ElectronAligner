@@ -30,10 +30,12 @@ export default class SoundControls extends React.Component {
   }
 
   render() {
+    const color = this.props.colorScheme;
+
     return (
-      <div className="sound-controls">
+      <div className={`sound-controls ${color}`}>
         <input
-          className="master-volume"
+          className={`master-volume ${color}`}
           type="range"
           value={this.props.masterVolume * 100}
           min={0}
@@ -67,7 +69,7 @@ export default class SoundControls extends React.Component {
             <h3 className="sound-label">Kick</h3>
 
             <input
-              className="kick-input"
+              className={`${color}`}
               type="range"
               min={0}
               max={100}
@@ -76,7 +78,7 @@ export default class SoundControls extends React.Component {
             />
 
             <input
-              className="kick-input"
+              className={`${color}`}
               type="range"
               min={100}
               max={350}
@@ -85,7 +87,7 @@ export default class SoundControls extends React.Component {
             />
 
             <input
-              className="kick-input"
+              className={`${color}`}
               type="range"
               min={0}
               max={200}
@@ -98,7 +100,7 @@ export default class SoundControls extends React.Component {
             <h3 className="sound-label">Snare</h3>
 
             <input
-              className="snare-input"
+              className={`${color}`}
               type="range"
               min={0}
               max={100}
@@ -107,7 +109,7 @@ export default class SoundControls extends React.Component {
             />
 
             <input
-              className="snare-input"
+              className={`${color}`}
               type="range"
               min={20}
               max={300}
@@ -116,7 +118,7 @@ export default class SoundControls extends React.Component {
             />
 
             <input
-              className="snare-input"
+              className={`${color}`}
               type="range"
               min={0}
               max={75}
@@ -145,7 +147,7 @@ export default class SoundControls extends React.Component {
             <h3 className="sound-label">Hat</h3>
 
             <input
-              className="hat-input"
+              className={`${color}`}
               type="range"
               min={0}
               max={100}
@@ -154,7 +156,7 @@ export default class SoundControls extends React.Component {
             />
 
             <input
-              className="hat-input"
+              className={`${color}`}
               type="range"
               min={100}
               max={350}
@@ -163,7 +165,7 @@ export default class SoundControls extends React.Component {
             />
 
             <input
-              className="hat-input"
+              className={`${color}`}
               type="range"
               min={0}
               max={200}
@@ -176,7 +178,7 @@ export default class SoundControls extends React.Component {
             <h3 className="sound-label">Clap</h3>
 
             <input
-              className="clap-input"
+              className={`${color}`}
               type="range"
               min={0}
               max={100}
@@ -185,7 +187,7 @@ export default class SoundControls extends React.Component {
             />
 
             <input
-              className="clap-input"
+              className={`${color}`}
               type="range"
               min={300}
               max={1000}
@@ -194,7 +196,7 @@ export default class SoundControls extends React.Component {
             />
 
             <input
-              className="clap-input"
+              className={`${color}`}
               type="range"
               min={0}
               max={75}

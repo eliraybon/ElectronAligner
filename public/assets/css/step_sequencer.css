@@ -45,3 +45,19 @@
   z-index: 100;
   position: absolute;
 }
+
+.start-button.sparks {
+  background: rgb(231, 133, 41);
+}
+
+.start-button.dokidoki {
+  background: rgb(248, 103, 131);
+}
+
+.start-button.free {
+  background: rgb(71, 209, 222);
+}
+
+.start-button.hxh {
+  background: rgb(81, 145, 78);
+}

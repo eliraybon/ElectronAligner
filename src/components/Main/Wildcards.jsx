@@ -167,6 +167,8 @@ export default class Wildcards extends React.Component {
   }
 
   render() {
+    const color = this.props.colorScheme;
+
     const bitCrusher = (this.state.bitCrusher) ? "active-effect" : "";
     const rain = (this.state.rain) ? "active-effect" : "";
     const chorus = (this.state.chorus) ? "active-effect" : "";
@@ -181,9 +183,9 @@ export default class Wildcards extends React.Component {
     const vinyl = (this.state.vinyl) ? "active-effect" : "";
 
     return (
-      <ul className="wildcards">
+      <ul className={`wildcards ${color}`}>
         <li
-          className={`wildcard ${rain}`}
+          className={`wildcard ${color} ${rain}`}
           onClick={this.toggleRain}
           key="rain"
         >
@@ -195,7 +197,7 @@ export default class Wildcards extends React.Component {
         </li>
 
         <li
-          className={`wildcard ${dracula}`}
+          className={`wildcard ${color} ${dracula}`}
           onClick={this.playDracula}
           key="dracula"
         >
@@ -207,7 +209,7 @@ export default class Wildcards extends React.Component {
         </li>
 
         <li
-          className={`wildcard ${cat}`}
+          className={`wildcard ${color} ${cat}`}
           onClick={this.triggerMeow}
           key="cat"
         >
@@ -219,7 +221,7 @@ export default class Wildcards extends React.Component {
         </li>
 
         <li
-          className={`wildcard ${robot}`}
+          className={`wildcard ${color} ${robot}`}
           onClick={this.tryAgain}
           key="robot"
         >
@@ -231,7 +233,7 @@ export default class Wildcards extends React.Component {
         </li>
 
         <li
-          className={`wildcard ${science}`}
+          className={`wildcard ${color} ${science}`}
           onClick={this.toggleScience}
           key="science"
         >
@@ -243,7 +245,7 @@ export default class Wildcards extends React.Component {
         </li>
 
         <li
-          className={`wildcard ${synth}`}
+          className={`wildcard ${color} ${synth}`}
           onClick={this.toggleSynth}
           key="synth"
         >
@@ -255,7 +257,7 @@ export default class Wildcards extends React.Component {
         </li>
 
         <li
-          className={`wildcard ${subway}`}
+          className={`wildcard ${color} ${subway}`}
           onClick={this.toggleSubway}
           key="subway"
         >
@@ -267,7 +269,7 @@ export default class Wildcards extends React.Component {
         </li>
 
         <li
-          className={`wildcard ${vinyl}`}
+          className={`wildcard ${color} ${vinyl}`}
           onClick={this.toggleVinyl}
           key="vinyl"
         >
@@ -279,7 +281,7 @@ export default class Wildcards extends React.Component {
         </li>
 
         <li
-          className={`wildcard ${bitCrusher}`}
+          className={`wildcard ${color} ${bitCrusher}`}
           onClick={this.toggleBitCrusher}
           key="donotpress"
         >
@@ -291,7 +293,7 @@ export default class Wildcards extends React.Component {
         </li>
 
         <li
-          className={`wildcard ${chorus}`}
+          className={`wildcard ${color} ${chorus}`}
           onClick={this.toggleChorus}
           key="chorus"
         >
@@ -303,7 +305,7 @@ export default class Wildcards extends React.Component {
         </li>
 
         <li
-          className={`wildcard ${wah}`}
+          className={`wildcard ${color} ${wah}`}
           onClick={this.toggleWah}
           key="wah"
         >
@@ -315,7 +317,7 @@ export default class Wildcards extends React.Component {
         </li>
 
         <li
-          className={`wildcard ${pingPong}`}
+          className={`wildcard ${color} ${pingPong}`}
           onClick={this.togglePingPong}
           key="pong"
         >

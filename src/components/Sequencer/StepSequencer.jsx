@@ -123,12 +123,31 @@ export default class StepSequeuncer extends React.Component {
     }, 1000)
   }
 
+  getColor = () => {
+    switch(this.props.colorScheme) {
+      case "future time":
+        return "rgb(143, 97, 230)";
+      case "sparks":
+        return "rgb(231, 133, 41)";
+      case "dokidoki":
+        return "rgb(248, 103, 131)";
+      case "free":
+        return "rgb(71, 209, 222)";
+      case "hxh":
+        return "rgb(81, 145, 78)";
+      default:
+        return "rgb(143, 97, 230)";
+    }
+  }
+
   render() {
+    const color = this.props.colorScheme;
+
     if (!this.state.loaded && !this.state.loading) {
       return (
         <div className="start-button-container">
           <button 
-            className="start-button" 
+            className={`start-button ${color}`}
             id="start-button"
             onClick={this.bootUpSequencer}
           >
@@ -144,7 +163,7 @@ export default class StepSequeuncer extends React.Component {
       return (
         <div className="start-button-container">
           <div className="loading-container">
-            <ReactLoading type={"bars"} color={"rgb(143, 97, 230)"} width={90} height={30}/>
+            <ReactLoading type={"bars"} color={`${this.getColor()}`} width={90} height={30}/>
           </div>
           <div className="click-catcher"></div>
         </div>
@@ -160,24 +179,28 @@ export default class StepSequeuncer extends React.Component {
           steps={this.kickSequence.steps}
           sound="kick"
           updateSequence={this.updateSequence}
+          colorScheme={this.props.colorScheme}
         />
 
         <Row
           steps={this.snareSequence.steps}
           sound="snare"
           updateSequence={this.updateSequence}
+          colorScheme={this.props.colorScheme}
         />
 
         <Row
           steps={this.hatSequence.steps}
           sound="hat"
           updateSequence={this.updateSequence}
+          colorScheme={this.props.colorScheme}
         />
 
         <Row
           steps={this.clapSequence.steps}
           sound="clap"
           updateSequence={this.updateSequence}
+          colorScheme={this.props.colorScheme}
         />
       </div>
     )

@@ -18,10 +18,11 @@ export default class Step extends React.Component {
 
   render() {
     let selected = (this.state.selected) ? "selected" : "";
+    const color = this.props.colorScheme;
 
     return (
       <li
-        className={`step ${selected}`}
+        className={`step ${selected} ${color}`}
         onClick={this.toggleSelect}
       >
       </li>
