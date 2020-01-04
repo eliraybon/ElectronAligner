@@ -30,6 +30,11 @@ export default class Container extends React.Component {
         )}
         <Samples />
         <DrumBoy />
+
+        <div className="mobile">
+          <h2 className="mobile-header">Electron Aligner</h2>
+          <p>Mobile version coming soon...</p>
+        </div>
       </main>
     )
   }

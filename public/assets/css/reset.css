@@ -18,20 +18,13 @@ span, article, footer, time, small {
   -webkit-font-smoothing: antialiased;
 }
 
-@media screen and (max-width: 1024px) {
-  html {
-    transform: rotate(90deg);
-    overflow-y: hidden;
-  }
-}
-
 main {
   position: relative;
   display: flex;
   justify-content: center;
   overflow-y: hidden;
-  /* align-items: center; */
-  /* height: 100vh; */
+  align-items: center;
+  height: 100vh;
 }
 
 ul {

@@ -27,3 +27,27 @@ body {
   margin-bottom: 20px;
 }
 
+@media screen and (max-width: 1023px) {
+  .drum-boy {
+    display: none;
+  }
+
+  .samples {
+    display: none;
+  }
+
+  .instruction-button {
+    display: none;
+  }
+
+  .instructions {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .mobile {
+    display: none;
+  }
+}
+
