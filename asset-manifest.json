@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/ElectronAligner/static/js/main.bbfc3a07.chunk.js",
-    "main.js.map": "/ElectronAligner/static/js/main.bbfc3a07.chunk.js.map",
+    "main.js": "/ElectronAligner/static/js/main.a4e9a6cb.chunk.js",
+    "main.js.map": "/ElectronAligner/static/js/main.a4e9a6cb.chunk.js.map",
     "runtime-main.js": "/ElectronAligner/static/js/runtime-main.5b75897f.js",
     "runtime-main.js.map": "/ElectronAligner/static/js/runtime-main.5b75897f.js.map",
     "static/js/2.d7310e92.chunk.js": "/ElectronAligner/static/js/2.d7310e92.chunk.js",
     "static/js/2.d7310e92.chunk.js.map": "/ElectronAligner/static/js/2.d7310e92.chunk.js.map",
     "index.html": "/ElectronAligner/index.html",
-    "precache-manifest.f63e103fd7b46b1192b4ef792486908a.js": "/ElectronAligner/precache-manifest.f63e103fd7b46b1192b4ef792486908a.js",
+    "precache-manifest.7bf1d5732d2fb9ff106cb6e3da4db6eb.js": "/ElectronAligner/precache-manifest.7bf1d5732d2fb9ff106cb6e3da4db6eb.js",
     "service-worker.js": "/ElectronAligner/service-worker.js",
     "static/js/2.d7310e92.chunk.js.LICENSE": "/ElectronAligner/static/js/2.d7310e92.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.5b75897f.js",
     "static/js/2.d7310e92.chunk.js",
-    "static/js/main.bbfc3a07.chunk.js"
+    "static/js/main.a4e9a6cb.chunk.js"
   ]
 }
