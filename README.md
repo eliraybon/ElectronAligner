@@ -62,21 +62,20 @@ The last slider gives you control over the decay, or how long the sound is heard
 With just these three controls, there are a ton of fun musical possibilites!
 
 <p align="center">
-  <img src="https://github.com/eliraybon/synthagram/blob/master/public/assets/readme/controls.png">
+  <img src="https://github.com/eliraybon/ElectronAligner/blob/master/public/assets/readme/controls.png">
 </p>
 
-But how are the sounds actually synthesized in the code?
+Each of the controllable sounds (as well as the wildcard samples) are routed into the effects, then to the master volume, then to the audio analyzer, and then to the output. This makes up the signal flow of the Electron Aligner. 
 
+<p align="center">
+  <img src="https://github.com/eliraybon/ElectronAligner/blob/master/public/assets/readme/signal_flow.png">
+</p>
 
-
-The Electron Aligner has several options 
+There are several options to customize the presentation, including multiple color schemes as well as an alternate audio visualizer mode. 
 
 <p align="center">
   <img src="https://github.com/eliraybon/ElectronAligner/blob/master/public/assets/readme/4.png">
 </p>
-
-
-
 
 
 ## Technologies 
