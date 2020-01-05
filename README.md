@@ -13,7 +13,7 @@ The Electron Aligner is an interactive step sequencer and drum machine. Chiptune
 Using the looping sequencer, users can create their own beats live!
 
 <p align="center">
-  <img src="https://github.com/eliraybon/synthagram/blob/master/public/assets/readme/1.png">
+  <img src="https://github.com/eliraybon/ElectronAligner/blob/master/public/assets/readme/1.png">
 </p>
 
 ## Features
@@ -34,7 +34,7 @@ When the sequencer is playing, it continuously loops over the steps at the selec
 The audio-visualizer allows you to see a visual representation of your musical creation!
 
 <p align="center">
-  <img src="https://github.com/eliraybon/synthagram/blob/master/public/assets/readme/2.png">
+  <img src="https://github.com/eliraybon/ElectronAligner/blob/master/public/assets/readme/2.png">
 </p>
 
 If you want to make things more interesting, you can active some wildcard buttons from the middle panel. These buttons trigger all sorts of unexpected effects! Some of them are short audio samples, others are looping ambient noise tracks, and others are audio effects. The icons are intentionally vague... Just press them and listen to what happens!
@@ -42,7 +42,7 @@ If you want to make things more interesting, you can active some wildcard button
 By combining certain wildcards, you can create interesting soundscapes without even using the sequencer! 
 
 <p align="center">
-  <img src="https://github.com/eliraybon/synthagram/blob/master/public/assets/readme/3.png">
+  <img src="https://github.com/eliraybon/ElectronAligner/blob/master/public/assets/readme/3.png">
 </p>
 
 One of the most fun features of the Electron Aligner is the ability to directly control the synthesis of the drum sounds. There are three parameters that you can control for each of the four sounds: volume, tone, and decay.
@@ -72,7 +72,7 @@ But how are the sounds actually synthesized in the code?
 The Electron Aligner has several options 
 
 <p align="center">
-  <img src="https://github.com/eliraybon/synthagram/blob/master/public/assets/readme/4.png">
+  <img src="https://github.com/eliraybon/ElectronAligner/blob/master/public/assets/readme/4.png">
 </p>
 
 
