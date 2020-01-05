@@ -71,6 +71,22 @@ Each of the controllable sounds (as well as the wildcard samples) are routed int
   <img src="https://github.com/eliraybon/ElectronAligner/blob/master/public/assets/readme/signal_flow.png">
 </p>
 
+In the code, that's just a chain of connections: 
+
+```js
+//all of the sounds are connected to this.effects
+
+this.effects.connect(this.bitCrusher.input);
+this.bitCrusher.connect(this.chorus.input);
+this.chorus.connect(this.wah.input);
+this.wah.connect(this.pingPong.input);
+this.pingPong.connect(this.masterVolume);
+this.masterVolume.connect(this.analyser);
+this.analyser.connect(context.destination);
+
+//the context.destination is your speakers!
+```
+
 There are several options to customize the presentation, including multiple color schemes as well as an alternate audio visualizer mode. 
 
 <p align="center">
