@@ -16,6 +16,14 @@ Using the looping sequencer, users can create their own beats live!
   <img src="https://github.com/eliraybon/ElectronAligner/blob/master/public/assets/readme/1.png">
 </p>
 
+## Technologies 
+- Web Audio API (for sound synthesis)
+- Tone.js (for synchronization and effects)
+- Canvas (for audio visualization)
+- React
+- HTML
+- CSS 
+
 ## Features
 -  Interactive step sequencer
 -  Looping for live beat creation
@@ -93,11 +101,3 @@ There are several options to customize the presentation, including multiple colo
   <img src="https://github.com/eliraybon/ElectronAligner/blob/master/public/assets/readme/4.png">
 </p>
 
-
-## Technologies 
-- Web Audio API (for sound synthesis)
-- Tone.js (for synchronization and effects)
-- Canvas (for audio visualization)
-- React
-- HTML
-- CSS 
