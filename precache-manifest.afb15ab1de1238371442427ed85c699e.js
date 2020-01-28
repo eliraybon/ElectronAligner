@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "61610e903ed32327542e4df4871030d9",
+    "revision": "bbdab79519ef0ad75379c199a51058b0",
     "url": "/ElectronAligner/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ElectronAligner/static/js/2.d7310e92.chunk.js.LICENSE"
   },
   {
-    "revision": "c2f30e5b5b53a1d4b673",
-    "url": "/ElectronAligner/static/js/main.31dcbda3.chunk.js"
+    "revision": "d52131a806be6381ab85",
+    "url": "/ElectronAligner/static/js/main.e3cf20f9.chunk.js"
   },
   {
     "revision": "e5da0e7aa9fd309a104d",

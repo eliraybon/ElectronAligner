@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ElectronAligner/precache-manifest.04591e690d0f686944b852318a80f413.js"
+  "/ElectronAligner/precache-manifest.afb15ab1de1238371442427ed85c699e.js"
 );
 
 self.addEventListener('message', (event) => {
